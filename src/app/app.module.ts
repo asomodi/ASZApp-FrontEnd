@@ -8,13 +8,15 @@ import { LoginComponent } from './login-register/login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './login-register/register/register.component';
+import { HeroPanelComponent } from './hero-panel/hero-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeroPanelComponent
   ],
   imports: [
     BrowserModule,
