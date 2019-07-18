@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { RecordIslandHttpService } from 'src/app/record-island-http.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  email: string;
+  @Input()
+  password: string;
+
+  constructor(private httpService: RecordIslandHttpService) {
+  }
 
   ngOnInit() {
+  }
+
+  login(): void {
+
   }
 
 }
