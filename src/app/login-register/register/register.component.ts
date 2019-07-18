@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NewUser } from 'src/app/interfaces/new-user';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  isFirstPanelCompleted = false;
+  isSecondPanelCompleted = false;
+  isThirdPanelCompleted = false;
+
+  @Input()
+  newUser: NewUser;
+
+  constructor() {
+
+    this.newUser = {
+
+      userName: '',
+      email: '',
+      password1: '',
+      password2: ''
+    }
+
+  }
 
   ngOnInit() {
   }

@@ -8,38 +8,93 @@
 </section>
 
 <section class="login-area section-padding-100">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
-                <div class="login-content">
-                    <h3>Welcome to Our Site!</h3>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="login-content">
+          <h3>Welcome to Our Site!</h3>
 
-                    <div class="login-form">
-                        <form action="login.html#" method="post">
-                          <div class="form-group">
-                            <label for="exampleInputUsername1">Username</label>
-                            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
-                          </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter E-mail">
-                                <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword2">Password (again)</label>
-                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                            </div>
-                            <button type="submit" class="btn oneMusic-btn mt-30">Register</button>
-                        </form>
-                    </div>
+
+          <div class="login-form">
+            <form action="login.html#" method="post">
+              <div class="form-group">
+                <label for="InputUsername1">Username</label>
+                <input type="text" class="form-control" id="InputUsername1" [(ngModel)]="newUser.userName" placeholder="Username" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group">
+                <label for="InputEmail1">Email address</label>
+                <input type="email" class="form-control" id="InputEmail1" [(ngModel)]="newUser.email" aria-describedby="emailHelp" placeholder="Enter E-mail" [ngModelOptions]="{standalone: true}">
+                <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="InputPassword1">Password</label>
+                <input type="password" class="form-control" id="InputPassword1" [(ngModel)]="newUser.password1" placeholder="Password" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group">
+                <label for="InputPassword2">Password (again)</label>
+                <input type="password" class="form-control" id="InputPassword2" [(ngModel)]="newUser.password2" placeholder="Password" [ngModelOptions]="{standalone: true}">
+              </div>
+              <button type="button" class="btn oneMusic-btn mt-30" click=register()>Next</button>
+            </form>
+          </div>
+
+
+          <div class="login-form">
+            <form action="login.html#" method="post">
+              <div class="form-group">
+                <label for="exampleInputUsername1">Username</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-            </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter E-mail">
+                <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword2">Password (again)</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+              </div>
+              <button type="button" class="btn oneMusic-btn mt-30" click=register()>Next</button>
+            </form>
+          </div>
+
+
+          <div class="login-form">
+            <form action="login.html#" method="post">
+              <div class="form-group">
+                <label for="exampleInputUsername1">Username</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter E-mail">
+                <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword2">Password (again)</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+              </div>
+              <button type="button" class="btn oneMusic-btn mt-30" click=register()>Register</button>
+            </form>
+          </div>
+
+
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <app-footer></app-footer>
