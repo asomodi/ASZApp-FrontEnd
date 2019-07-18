@@ -9,6 +9,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './login-register/register/register.component';
 import { HeroPanelComponent } from './hero-panel/hero-panel.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HeroPanelComponent } from './hero-panel/hero-panel.component';
     LoginComponent,
     HeaderComponent,
     RegisterComponent,
-    HeroPanelComponent
+    HeroPanelComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
