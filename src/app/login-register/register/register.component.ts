@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
     this.newUser = {
 
-      userName: '',
+      nickName: '',
       email: '',
       password1: '',
       password2: ''

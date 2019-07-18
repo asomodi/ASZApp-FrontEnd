@@ -18,9 +18,10 @@
           <div class="login-form">
             <form action="login.html#" method="post">
               <div class="form-group">
-                <label for="InputUsername1">Username</label>
-                <input type="text" class="form-control" id="InputUsername1" [(ngModel)]="newUser.userName" placeholder="Username" [ngModelOptions]="{standalone: true}">
+                <label for="InputNickname1">Nickname</label>
+                <input type="text" class="form-control" id="InputNickname1" [(ngModel)]="newUser.nickName" placeholder="Nickname" [ngModelOptions]="{standalone: true}">
               </div>
+
               <div class="form-group">
                 <label for="InputEmail1">Email address</label>
                 <input type="email" class="form-control" id="InputEmail1" [(ngModel)]="newUser.email" aria-describedby="emailHelp" placeholder="Enter E-mail" [ngModelOptions]="{standalone: true}">
@@ -34,57 +35,21 @@
                 <label for="InputPassword2">Password (again)</label>
                 <input type="password" class="form-control" id="InputPassword2" [(ngModel)]="newUser.password2" placeholder="Password" [ngModelOptions]="{standalone: true}">
               </div>
-              <button type="button" class="btn oneMusic-btn mt-30" click=register()>Next</button>
-            </form>
-          </div>
-
-
-          <div class="login-form">
-            <form action="login.html#" method="post">
               <div class="form-group">
-                <label for="exampleInputUsername1">Username</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                <label for="InputSpotifyName">Spotify Name</label>
+                <input type="text" class="form-control" id="InputSpotifyname" [(ngModel)]="newUser.SpotifyName" placeholder="Spotify Name" [ngModelOptions]="{standalone: true}">
                 <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <input type="checkbox" class="form-check-input" id="SpotifyCheck">
+                  <label class="form-check-label" for="SpotifyCheck">I don't have a Spotify account</label>
                 </div>
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter E-mail">
-                <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword2">Password (again)</label>
-                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-              </div>
-              <button type="button" class="btn oneMusic-btn mt-30" click=register()>Next</button>
-            </form>
-          </div>
-
-
-          <div class="login-form">
-            <form action="login.html#" method="post">
-              <div class="form-group">
-                <label for="exampleInputUsername1">Username</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter E-mail">
-                <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword2">Password (again)</label>
-                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                <label for="InputLastFmName">Last.fm Name</label>
+                <input type="text" class="form-control" id="InputLastFmName" [(ngModel)]="newUser.LastFmName" placeholder="last.fm Name" [ngModelOptions]="{standalone: true}">
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="LastFmCheck">
+                  <label class="form-check-label" for="LastFmCheck">I don't have a last.fm account</label>
+                </div>
               </div>
               <button type="button" class="btn oneMusic-btn mt-30" click=register()>Register</button>
             </form>

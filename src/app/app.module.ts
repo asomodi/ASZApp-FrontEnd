@@ -11,6 +11,7 @@ import { RegisterComponent } from './login-register/register/register.component'
 import { HeroPanelComponent } from './hero-panel/hero-panel.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { GenreTop10Component } from './genre-top10/genre-top10.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     RegisterComponent,
     HeroPanelComponent,
-    FooterComponent
+    FooterComponent,
+    GenreTop10Component
   ],
   imports: [
     BrowserModule,
