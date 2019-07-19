@@ -13,6 +13,8 @@ import { HeroPanelComponent } from './hero-panel/hero-panel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GenreTop10Component } from './genre-top10/genre-top10.component';
+import { LibraryComponent } from './library/library.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     HeroPanelComponent,
     FooterComponent,
+    GenreTop10Component,
+    LibraryComponent
   ],
   imports: [
     BrowserModule,
