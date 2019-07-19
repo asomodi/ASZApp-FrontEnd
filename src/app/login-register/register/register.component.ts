@@ -8,10 +8,10 @@ import { NewUser } from 'src/app/interfaces/new-user';
 })
 export class RegisterComponent implements OnInit {
 
-  isFirstPanelCompleted = false;
-  isSecondPanelCompleted = false;
-  isThirdPanelCompleted = false;
-
+  @Input()
+  checkboxSpotify: string;
+  @Input()
+  checkboxLastfm: string;
   @Input()
   newUser: NewUser;
 
@@ -22,12 +22,16 @@ export class RegisterComponent implements OnInit {
       userName: '',
       email: '',
       password1: '',
-      password2: ''
+      password2: '',
+      lastfm: '',
+      spotify: ''
+
     }
 
   }
 
   ngOnInit() {
+
   }
 
 }

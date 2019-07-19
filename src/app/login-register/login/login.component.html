@@ -18,14 +18,13 @@
                         <form action="login.html#" method="post">
                             <div class="form-group">
                                 <label for="exampleInputuserName">Username</label>
-                                <input type="userName" class="form-control" id="exampleInputuserName" [(ngModel)]="userName" aria-describedby="userNameHelp" placeholder="Enter Username" [ngModelOptions]="{standalone: true}">
-                                <small id="userNameHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></small>
+                                <input type="userName" class="form-control" id="exampleInputuserName" [(ngModel)]="username" aria-describedby="userNameHelp" placeholder="Enter Username" [ngModelOptions]="{standalone: true}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" placeholder="Password" [ngModelOptions]="{standalone: true}">
                             </div>
-                            <button type="button" class="btn oneMusic-btn mt-30" click=login()>Login</button>
+                            <button type="submit" class="btn oneMusic-btn mt-30" (click)=login()>Login</button>
                         </form>
                     </div>
                 </div>
@@ -34,5 +33,5 @@
     </div>
 </section>
 
-<mat-checkbox unchecked="true">Angular Checkbox UnChecked</mat-checkbox>
+
 <app-footer></app-footer>
