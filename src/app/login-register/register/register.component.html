@@ -13,13 +13,17 @@
       <div class="col-12 col-lg-8">
         <div class="login-content">
           <h3>Welcome to Our Site!</h3>
-
-
+          <div class="alert alert-success" role="alert" *ngIf="showSuccessAlert">
+            Successful registration!
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="showDangerAlert">
+            nope
+          </div>
           <div class="login-form">
             <form action="login.html#" method="post">
               <div class="form-group">
                 <label for="InputUsername1">Username</label>
-                <input type="text" class="form-control" id="InputUsername1" [(ngModel)]="newUser.userName" placeholder="Username" [ngModelOptions]="{standalone: true}">
+                <input type="text" class="form-control" id="InputUsername1" [(ngModel)]="newUser.username" placeholder="Username" [ngModelOptions]="{standalone: true}">
               </div>
 
               <div class="form-group">
@@ -29,7 +33,7 @@
               </div>
               <div class="form-group">
                 <label for="InputPassword1">Password</label>
-                <input type="password" class="form-control" id="InputPassword1" [(ngModel)]="newUser.password1" placeholder="Password" [ngModelOptions]="{standalone: true}">
+                <input type="password" class="form-control" id="InputPassword1" [(ngModel)]="newUser.password" placeholder="Password" [ngModelOptions]="{standalone: true}">
               </div>
               <div class="form-group">
                 <label for="InputPassword2">Password (again)</label>
@@ -37,15 +41,16 @@
               </div>
               <div class="form-group">
                 <label for="InputSpotifyName" *ngIf="checkboxSpotify==checked">Spotify Name</label>
-                <input type="text" name="SpotifyName" class="form-control" id="InputSpotifyname" [(ngModel)]="newUser.SpotifyName" [ngModelOptions]="{standalone: true}" placeholder="Spotify Name" *ngIf="checkboxSpotify==checked">
+                <input type="text" name="SpotifyName" class="form-control" id="InputSpotifyname" [(ngModel)]="newUser.SpotifyName" [ngModelOptions]="{standalone: true}" placeholder="Spotify Name" *ngIf="checkboxSpotify==checked"
+                    ng-show="checkboxSpotify==checked">
                 <mat-checkbox unchecked [(ngModel)]="checkboxSpotify" [ngModelOptions]="{standalone: true}">I don't have a Spotify account</mat-checkbox>
               </div>
               <div class="form-group">
-                <label for="InputLastFmName"  *ngIf="checkboxLastfm==checked">Last.fm Name</label>
+                <label for="InputLastFmName" *ngIf="checkboxLastfm==checked">Last.fm Name</label>
                 <input type="text" name="LastFmName" class="form-control" id="InputLastFmName" [(ngModel)]="newUser.LastFmName" [ngModelOptions]="{standalone: true}" placeholder="last.fm Name" *ngIf="checkboxLastfm==checked">
                 <mat-checkbox unchecked [(ngModel)]="checkboxLastfm" [ngModelOptions]="{standalone: true}">I don't have a last.fm account</mat-checkbox>
               </div>
-              <button type="button" class="btn oneMusic-btn mt-30" click=register()>Register</button>
+              <button type="button" class="btn oneMusic-btn mt-30" (click)=register()>Register</button>
             </form>
           </div>
         </div>

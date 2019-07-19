@@ -8,29 +8,34 @@
 </section>
 
 <section class="login-area section-padding-100">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
-                <div class="login-content">
-                    <h3>Welcome Back!</h3>
-
-                    <div class="login-form">
-                        <form action="login.html#" method="post">
-                            <div class="form-group">
-                                <label for="exampleInputuserName">Username</label>
-                                <input type="userName" class="form-control" id="exampleInputuserName" [(ngModel)]="username" aria-describedby="userNameHelp" placeholder="Enter Username" [ngModelOptions]="{standalone: true}">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" placeholder="Password" [ngModelOptions]="{standalone: true}">
-                            </div>
-                            <button type="submit" class="btn oneMusic-btn mt-30" (click)=login()>Login</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="login-content">
+          <h3>Welcome Back!</h3>
+          <div class="alert alert-success" role="alert" *ngIf="showSuccessAlert">
+            You are logged in {{username}}. nice
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="showDangerAlert">
+            Invalid username/password
+          </div>
+          <div class="login-form">
+            <form action="login.html#" method="post">
+              <div class="form-group">
+                <label for="exampleInputuserName">Username</label>
+                <input type="userName" class="form-control" id="exampleInputuserName" [(ngModel)]="username" aria-describedby="userNameHelp" placeholder="Enter Username" [ngModelOptions]="{standalone: true}">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" placeholder="Password" [ngModelOptions]="{standalone: true}">
+              </div>
+              <button type="submit" class="btn oneMusic-btn mt-30" (click)=login()>Login</button>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 

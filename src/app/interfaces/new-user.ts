@@ -1,8 +1,8 @@
 export interface NewUser {
 
-  userName: string;
+  username: string;
   email: string;
-  password1: string;
+  password: string;
   password2?: string;
   spotify?: string;
   lastfm?: string;
