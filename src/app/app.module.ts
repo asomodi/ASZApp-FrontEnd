@@ -12,10 +12,13 @@ import { RegisterComponent } from './login-register/register/register.component'
 import { HeroPanelComponent } from './hero-panel/hero-panel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
-import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { ContactComponent } from './contact/contact.component';
+import { LibraryComponent } from './library/library.component';
+import { GenreTop10Component } from './genre-top10/genre-top10.component';
+import { HttpClientModule } from '@angular/common/http';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
     HeroPanelComponent,
     FooterComponent,
     HomeComponent,
+    GenreTop10Component,
+    LibraryComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
