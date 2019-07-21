@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GenreTop10Component } from './genre-top10/genre-top10.component';
 import { LibraryComponent } from './library/library.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LibraryComponent } from './library/library.component';
     HeroPanelComponent,
     FooterComponent,
     GenreTop10Component,
-    LibraryComponent
+    LibraryComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
