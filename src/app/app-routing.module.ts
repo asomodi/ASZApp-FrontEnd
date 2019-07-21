@@ -3,10 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login-register/login/login.component';
 import { RegisterComponent } from './login-register/register/register.component';
 import { HeroPanelComponent } from './hero-panel/hero-panel.component';
-import { LibraryComponent } from './library/library.component';
-import { ContactComponent } from './contact/contact.component';
+
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_helpers/auth.guard';
+import { LibraryComponent } from './library/library.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 

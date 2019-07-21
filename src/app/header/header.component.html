@@ -22,11 +22,11 @@
             <ul>
               <li><a routerLink='/home'>Home</a></li>
               <li><a routerLink='/index'>Artists</a></li>
-                <li><a routerLink='/albums'>Albums</a></li>
+              <li><a routerLink='/albums'>Albums</a></li>
               <li><a routerLink='/contact'>Contact</a></li>
             </ul>
 
-            <div class="login-register-cart-button d-flex align-items-center" >
+            <div class="login-register-cart-button d-flex align-items-center">
 
               <div class="login-register-btn mr-60" *ngIf="currentUser==null">
                 <a routerLink='/login' id="loginBtn">Login/ </a>
@@ -41,7 +41,7 @@
 
               </div>
               <div class="login-register-btn  mr-50">
-                <a  id="logoutBtn" (click)="logout()" *ngIf="currentUser!=null"> Logout</a>
+                <a id="logoutBtn" (click)="logout()" *ngIf="currentUser!=null"> Logout</a>
               </div>
             </div>
           </div>
