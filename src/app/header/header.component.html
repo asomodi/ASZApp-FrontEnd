@@ -20,25 +20,28 @@
 
           <div class="classynav">
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="albums-store.html">Albums</a></li>
-              <li><a href="artists.html">Artists</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a routerLink='/home'>Home</a></li>
+              <li><a routerLink='/index'>Albums</a></li>
+              <li><a routerLink='/index'>Artists</a></li>
+              <li><a routerLink='/index'>Contact</a></li>
             </ul>
 
-            <div class="login-register-cart-button d-flex align-items-center">
+            <div class="login-register-cart-button d-flex align-items-center" >
 
-              <div class="login-register-btn mr-60">
+              <div class="login-register-btn mr-60" *ngIf="currentUser==null">
                 <a routerLink='/login' id="loginBtn">Login/ </a>
               </div>
 
-              <div class="login-register-btn  mr-50">
-                <a routerLink='/register' id="loginBtn"> Register</a>
+              <div class="login-register-btn  mr-50" *ngIf="currentUser==null">
+                <a routerLink='/register' id="registerBtn"> Register</a>
               </div>
 
 
               <div class="cart-btn">
 
+              </div>
+              <div class="login-register-btn  mr-50">
+                <a  id="logoutBtn" (click)="logout()" *ngIf="currentUser!=null"> Logout</a>
               </div>
             </div>
           </div>

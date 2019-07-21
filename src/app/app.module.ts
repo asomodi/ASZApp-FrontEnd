@@ -12,7 +12,10 @@ import { RegisterComponent } from './login-register/register/register.component'
 import { HeroPanelComponent } from './hero-panel/hero-panel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     HeroPanelComponent,
     FooterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
   ],
   providers: [
-  ],
+          { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+          { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+      ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
