@@ -13,7 +13,7 @@
       <div class="col-12 col-lg-8">
         <div class="login-content">
           <h3>Welcome to Our Site!</h3>
-          <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+          <alert></alert>
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="username">Username</label>
@@ -34,7 +34,7 @@
             <div class="form-group">
               <label for="email">Email address</label>
               <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
+              <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                 <div *ngIf="f.email.errors.required">Email address is required</div>
                 <div *ngIf="f.email.errors.email">Not a valid email address</div>

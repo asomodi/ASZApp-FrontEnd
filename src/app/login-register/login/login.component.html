@@ -13,8 +13,7 @@
       <div class="col-12 col-lg-8">
         <div class="login-content">
           <h3>Welcome Back!</h3>
-          <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-          <div *ngIf="success" class="alert alert-success">{{success}}</div>
+          <alert></alert>
           <div class="login-form">
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <div class="form-group">

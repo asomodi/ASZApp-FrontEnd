@@ -20,6 +20,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { HomeComponent } from './home/home.component';
 
+import { AlertComponent } from './alert/alert.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
     GenreTop10Component,
     LibraryComponent,
-    ContactComponent
+    ContactComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
