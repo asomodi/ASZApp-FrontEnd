@@ -5,8 +5,6 @@ import { first } from 'rxjs/operators';
 import { UserService } from 'src/app/_services/user.service';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 
-
-
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
@@ -29,7 +27,7 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
-            username: ['', Validators.required],
+            username: ['', [Validators.required, Validators.minLength(5)]],
             password: ['', [Validators.required, Validators.minLength(8)]]
         });
     }
