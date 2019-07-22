@@ -1,4 +1,3 @@
-
 <app-header></app-header>
 
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/breadcumb3.jpg);">
@@ -13,7 +12,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <div class="browse-by-catagories catagory-menu d-flex flex-wrap align-items-center mb-70">
+        <!-- <div class="browse-by-catagories catagory-menu d-flex flex-wrap align-items-center mb-70">
           <a href="albums-store.html#" data-filter="*">Browse All</a>
           <a href="albums-store.html#" data-filter=".a" class="active">A</a>
           <a href="albums-store.html#" data-filter=".b">B</a>
@@ -42,7 +41,7 @@
           <a href="albums-store.html#" data-filter=".y">Y</a>
           <a href="albums-store.html#" data-filter=".z">Z</a>
           <a href="albums-store.html#" data-filter=".number">0-9</a>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="row oneMusic-albums">
@@ -54,7 +53,9 @@
             <a href="albums-store.html#">
               <h5>The Cure</h5>
             </a>
-            <p>Second Song</p>
+            <p ng-init="like=1">Second Song {{ like }}</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-01" ng-click='like=like+1'></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click='like=like-1'></i>
           </div>
         </div>
       </div>
@@ -67,6 +68,8 @@
               <h5>Sam Smith</h5>
             </a>
             <p>Underground</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
@@ -79,6 +82,8 @@
               <h5>Will I am</h5>
             </a>
             <p>First</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
@@ -91,6 +96,8 @@
               <h5>The Cure</h5>
             </a>
             <p>Second Song</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
@@ -103,6 +110,8 @@
               <h5>DJ SMITH</h5>
             </a>
             <p>The Album</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
@@ -115,6 +124,8 @@
               <h5>The Ustopable</h5>
             </a>
             <p>Unplugged</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
@@ -127,6 +138,8 @@
               <h5>Beyonce</h5>
             </a>
             <p>Songs</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
@@ -139,6 +152,8 @@
               <h5>Aam Smith</h5>
             </a>
             <p>Underground</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
@@ -151,6 +166,8 @@
               <h5>Will I am</h5>
             </a>
             <p>First</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
@@ -163,6 +180,8 @@
               <h5>DJ SMITH</h5>
             </a>
             <p>The Album</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
@@ -175,6 +194,8 @@
               <h5>The Ustopable</h5>
             </a>
             <p>Unplugged</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
@@ -187,11 +208,14 @@
               <h5>Beyonce</h5>
             </a>
             <p>Songs</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<app-header></app-header>
+<app-footer></app-footer>

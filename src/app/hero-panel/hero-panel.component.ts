@@ -16,7 +16,7 @@ export class HeroPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.path = 'url(/assets/img/bg-img/bg-2.jpg)';
-    const source = interval(5000);
+    const source = interval(10000);
     const subscribe = source.subscribe(val => {
 
       if (this.index == this.images.length-1) {
