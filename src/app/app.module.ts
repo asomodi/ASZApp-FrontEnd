@@ -21,6 +21,9 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { HomeComponent } from './home/home.component';
 
 import { AlertComponent } from './alert/alert.component';
+import { ArtistsComponent } from './artists/artists.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,8 @@ import { AlertComponent } from './alert/alert.component';
     GenreTop10Component,
     LibraryComponent,
     ContactComponent,
-    AlertComponent
+    AlertComponent,
+    ArtistsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import { AlertComponent } from './alert/alert.component';
     FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    HttpClientModule,
+    HttpClientModule
+
   ],
   providers: [
           { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

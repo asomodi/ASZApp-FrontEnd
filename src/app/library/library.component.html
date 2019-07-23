@@ -12,36 +12,6 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <!-- <div class="browse-by-catagories catagory-menu d-flex flex-wrap align-items-center mb-70">
-          <a href="albums-store.html#" data-filter="*">Browse All</a>
-          <a href="albums-store.html#" data-filter=".a" class="active">A</a>
-          <a href="albums-store.html#" data-filter=".b">B</a>
-          <a href="albums-store.html#" data-filter=".c">C</a>
-          <a href="albums-store.html#" data-filter=".d">D</a>
-          <a href="albums-store.html#" data-filter=".e">E</a>
-          <a href="albums-store.html#" data-filter=".f">F</a>
-          <a href="albums-store.html#" data-filter=".g">G</a>
-          <a href="albums-store.html#" data-filter=".h">H</a>
-          <a href="albums-store.html#" data-filter=".i">I</a>
-          <a href="albums-store.html#" data-filter=".j">J</a>
-          <a href="albums-store.html#" data-filter=".k">K</a>
-          <a href="albums-store.html#" data-filter=".l">L</a>
-          <a href="albums-store.html#" data-filter=".m">M</a>
-          <a href="albums-store.html#" data-filter=".n">N</a>
-          <a href="albums-store.html#" data-filter=".o">O</a>
-          <a href="albums-store.html#" data-filter=".p">P</a>
-          <a href="albums-store.html#" data-filter=".q">Q</a>
-          <a href="albums-store.html#" data-filter=".r">R</a>
-          <a href="albums-store.html#" data-filter=".s">S</a>
-          <a href="albums-store.html#" data-filter=".t">T</a>
-          <a href="albums-store.html#" data-filter=".u">U</a>
-          <a href="albums-store.html#" data-filter=".v">V</a>
-          <a href="albums-store.html#" data-filter=".w">W</a>
-          <a href="albums-store.html#" data-filter=".x">X</a>
-          <a href="albums-store.html#" data-filter=".y">Y</a>
-          <a href="albums-store.html#" data-filter=".z">Z</a>
-          <a href="albums-store.html#" data-filter=".number">0-9</a>
-        </div> -->
       </div>
     </div>
     <div class="row oneMusic-albums">
@@ -54,8 +24,8 @@
               <h5>The Cure</h5>
             </a>
             <p ng-init="like=1">Second Song {{ like }}</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-01" ng-click='like=like+1'></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click='like=like-1'></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-01" ng-click="myStyle={color:'red'}" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -68,8 +38,8 @@
               <h5>Sam Smith</h5>
             </a>
             <p>Underground</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-02" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -82,8 +52,8 @@
               <h5>Will I am</h5>
             </a>
             <p>First</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-03" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -96,8 +66,8 @@
               <h5>The Cure</h5>
             </a>
             <p>Second Song</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-04" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -110,8 +80,8 @@
               <h5>DJ SMITH</h5>
             </a>
             <p>The Album</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-05" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -124,8 +94,8 @@
               <h5>The Ustopable</h5>
             </a>
             <p>Unplugged</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-06" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -138,8 +108,8 @@
               <h5>Beyonce</h5>
             </a>
             <p>Songs</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-07" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -152,8 +122,8 @@
               <h5>Aam Smith</h5>
             </a>
             <p>Underground</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-08" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -166,8 +136,8 @@
               <h5>Will I am</h5>
             </a>
             <p>First</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-09" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -180,8 +150,8 @@
               <h5>DJ SMITH</h5>
             </a>
             <p>The Album</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-10" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -194,8 +164,8 @@
               <h5>The Ustopable</h5>
             </a>
             <p>Unplugged</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-11" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
@@ -208,8 +178,8 @@
               <h5>Beyonce</h5>
             </a>
             <p>Songs</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" ng-click=''></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click=''></i>
+            <i class="fa fa-thumbs-up like-icon" id="album-12" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
