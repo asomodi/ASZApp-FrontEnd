@@ -2,6 +2,40 @@
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/breadcumb3.jpg);">
   <div class="bradcumbContent">
     <p></p>
-    <h2>home works!</h2>
+    <h2>My recommendations</h2>
   </div>
 </section>
+
+<section class="album-catagory section-padding-100-0">
+
+    <ngx-spinner bdOpacity=0.9 bdColor="#333" size="large" color="#fff" type="line-scale-party" [fullScreen]="true">
+      <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+
+    <div class="container d-flex align-items-center justify-content-center" *ngIf="recommendations.length==0"><h1>You don't have any recommendations</h1></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+      </div>
+    </div>
+    <div class="row oneMusic-albums">
+
+
+      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p" *ngFor="let r of recommendations">
+        <div class="single-album">
+          <img src="/assets/img/bg-img/a1.jpg" alt="">
+          <div class="album-info">
+              <h5>{{r.title}}</h5>
+            <p ng-init="like=1">{{r.artist.name}}</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-01" ng-click='like=like+1'></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click='like=like-1'></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

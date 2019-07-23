@@ -19,8 +19,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { HomeComponent } from './home/home.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AlertComponent } from './alert/alert.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,7 @@ import { AlertComponent } from './alert/alert.component';
     GenreTop10Component,
     LibraryComponent,
     ContactComponent,
-    AlertComponent
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,8 @@ import { AlertComponent } from './alert/alert.component';
     ReactiveFormsModule,
     MatCheckboxModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
+    NgxSpinnerModule
   ],
   providers: [
           { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
