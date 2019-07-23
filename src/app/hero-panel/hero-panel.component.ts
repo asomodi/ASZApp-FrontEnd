@@ -11,6 +11,7 @@ import { interval } from 'rxjs';
 export class HeroPanelComponent implements OnInit {
 
   images = [1, 2, 3, 4, 5, 6, 7].map(i => `url(/assets/img/bg-img/bg-${i}.jpg)`);
+  images2 = [1, 2, 3, 4, 5, 6, 7].map(i => `/assets/img/bg-img/bg-${i}.jpg`);
   index = 0;
   path: string;
 
