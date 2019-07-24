@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/breadcumb3.jpg);">
+  <div class="bradcumbContent">
+    <p></p>
+    <h2>Register</h2>
+  </div>
+</section>
+
+<section class="login-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="login-content">
+          <h3>Welcome to Our Site!</h3>
+          <alert></alert>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+                <div *ngIf="f.username.errors.minlength">Username must be at least 5 characters</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email address is required</div>
+                <div *ngIf="f.email.errors.email">Not a valid email address</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastFmUsername">lastFm username</label>
+              <input type="text" formControlName="lastFmUsername" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="spotifyUserName">spotify username</label>
+              <input type="text" formControlName="spotifyUserName" class="form-control" />
+            </div>
+            <button [disabled]="loading" class="btn oneMusic-btn">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

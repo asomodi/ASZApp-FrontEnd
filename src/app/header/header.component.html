@@ -1,0 +1,55 @@
+<header class="header-area">
+
+  <div class="oneMusic-main-menu">
+    <div class="classy-nav-container breakpoint-off">
+
+
+      <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+
+        <a routerLink='/index' class="nav-brand ml-50"><img src="/assets/img/core-img/vinyl.png" alt=""></a>
+
+        <div class="classy-navbar-toggler">
+          <span class="navbarToggler"><span></span><span></span><span></span></span>
+        </div>
+
+        <div class="classy-menu">
+
+          <div class="classycloseIcon">
+            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+          </div>
+
+          <div class="classynav">
+            <ul>
+              <li><a routerLink='/home'>Home</a></li>
+              <li><a routerLink='/artists'>History</a></li>
+              <li><a routerLink='/albums'>Albums</a></li>
+              <li><a routerLink='/contact'>Contact</a></li>
+            </ul>
+
+            <div class="login-register-cart-button d-flex align-items-center">
+
+              <div class="login-register-btn mr-60" *ngIf="currentUser==null">
+                <a routerLink='/login' id="loginBtn">Login/ </a>
+              </div>
+
+              <div class="login-register-btn  mr-50" *ngIf="currentUser==null">
+                <a routerLink='/register' id="registerBtn"> Register</a>
+              </div>
+
+
+              <div class="cart-btn">
+
+              </div>
+              <div class="login-register-btn  mr-50">
+                <a id="logoutBtn" (click)="logout()" *ngIf="currentUser!=null"> Logout</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+  </div>
+
+
+</header>
