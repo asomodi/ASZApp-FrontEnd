@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class RecommendationService {
 
-  private readonly SERVER_URL = "http://192.168.1.209:8080/api/allmusicRecommendation";
+  private readonly SERVER_URL = "http://192.168.1.102:8080/api/allmusicRecommendation";
 
   constructor(private http: HttpClient) { }
 

@@ -7,4 +7,20 @@
   </div>
 </section>
 
+<div class="team-section">
+  <h1>Our Team</h1>
+  <span class="border"></span>
+  <div class="ps" *ngFor="let p of profileToDisplay">
+  <a href="#"><img src="p.image" alt=""></a>
+
+  </div>
+
+  <div class="section" id="p1">
+    <span class="name">{{ p.name }}</span>
+    <span class="border"></span>
+    <p>{{ p.about }}</p>
+  </div>
+
+</div>
+
 <app-footer></app-footer>

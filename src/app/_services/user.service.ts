@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class UserService {
 
-  private readonly SERVER_URL = "http://192.168.1.209:8080/register";
+  private readonly SERVER_URL = "http://192.168.1.102:8080/register";
   // private readonly SERVER_URL = "http://localhost:8080/register";
 
   constructor(private http: HttpClient) { }

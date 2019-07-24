@@ -12,7 +12,7 @@
       <p style="color: white"> Loading... </p>
     </ngx-spinner>
 
-    <div class="container d-flex align-items-center justify-content-center" *ngIf="recommendations.length==0"><h1>You don't have any recommendations</h1></div>
+    <div class="container d-flex align-items-center justify-content-center" *ngIf="recommendations==null || recommendations.length==0"><h1>You don't have any recommendations</h1></div>
 
   <div class="container">
     <div class="row">
@@ -26,7 +26,7 @@
         <div class="single-album">
           <img src={{r.img}} alt="">
           <div class="album-info">
-              <h5>{{r.title}}</h5>
+              <h5>{{r.name}}</h5>
             <p ng-init="like=1">{{r.artist}}</p>
             <i class="fa fa-thumbs-up like-icon" id="album-01" ng-click='like=like+1'></i>
             <i class="fa fa-thumbs-down dislike-icon" ng-click='like=like-1'></i>

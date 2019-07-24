@@ -11,27 +11,13 @@
 <section class="album-catagory section-padding-100-0">
   <div class="container">
     <div class="alert alert-danger" role="alert" *ngIf="isAlbumReccomendationFailed">
-      The recommendations are broken.
+      The recommendations are broken by the servers.
     </div>
     <div class="row">
       <div class="col-12">
       </div>
     </div>
     <div class="row oneMusic-albums">
-
-      <!-- <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p" *ngFor="">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a1.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>The Cure</h5>
-            </a>
-            <p ng-init="like=1">Second Song {{ like }}</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-01" ng-click="myStyle={color:'red'}" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click='like=like-1' [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div> -->
 
       <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p" *ngFor="let a of albumsToDisplay">
         <div class="single-album">
