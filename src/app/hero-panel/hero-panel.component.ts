@@ -11,21 +11,16 @@ import { interval } from 'rxjs';
 export class HeroPanelComponent implements OnInit {
 
   images = [1, 2, 3, 4, 5, 6, 7].map(i => `url(/assets/img/bg-img/bg-${i}.jpg)`);
-  index = 0;
-  path: string;
+  index = 1;
 
   ngOnInit(): void {
-    this.path = 'url(/assets/img/bg-img/bg-2.jpg)';
     const source = interval(10000);
     const subscribe = source.subscribe(val => {
-
       if (this.index == this.images.length-1) {
         this.index = 0;
       } else {
         this.index++;
       }
-
-      this.path = this.images[this.index];
     });
   }
 

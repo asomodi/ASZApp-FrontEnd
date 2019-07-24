@@ -21,13 +21,17 @@ export class HomeComponent implements OnInit {
     /** spinner starts on init */
     this.spinner.show();
 
-    this.recommendataionService.getRecommendations().subscribe(recs => {
-      this.recommendations = recs;
-      this.spinner.hide();
-  }, error=>{
-      this.spinner.hide();
-  })
+    this.recommendations = JSON.parse(localStorage.getItem('recommendations'));
 
+    if (this.recommendations.length == 0) {
+      this.recommendataionService.getRecommendations().subscribe(recs => {
+        this.recommendations = recs;
+        this.spinner.hide();
+      }, error => {
+        this.spinner.hide();
+      })
+    } else {
+      this.spinner.hide();
+    }
   }
-
 }

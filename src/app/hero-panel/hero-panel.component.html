@@ -4,8 +4,12 @@
   <div class="hero-slides ">
 
     <div class="single-hero-slide d-flex align-items-center justify-content-center">
-      <div class="slide-img bg-img fadeIn fade-background" [ngStyle]="{background: path}"></div>
-      <div class="container">
+      <!-- <div class="slide-img bg-img fadeIn fade-background" [ngStyle]="{background: path}"></div> -->
+      <div *ngFor="let img of images; index as i">
+        <div class="slide-img bg-img fadeIn fade-img" [ngStyle]="{background: images[i], 'z-index': i}" [ngClass]="{ show: index == i }"></div>
+      </div>
+
+      <div class="container" [ngStyle]="{'z-index':8}">
         <div class="row">
           <div class="col-12">
             <div class="hero-slides-content text-center">
@@ -17,6 +21,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </section>
 

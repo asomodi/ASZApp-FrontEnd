@@ -1,3 +1,8 @@
-.fade-background{
-    transition: background 1s cubic-bezier(0.55, 0.06, 0.68, 0.19) !important;
+.fade-img {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.show {
+  opacity: 1;
 }
