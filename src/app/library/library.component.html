@@ -10,13 +10,16 @@
 
 <section class="album-catagory section-padding-100-0">
   <div class="container">
+    <div class="alert alert-danger" role="alert" *ngIf="isAlbumReccomendationFailed">
+      The recommendations are broken.
+    </div>
     <div class="row">
       <div class="col-12">
       </div>
     </div>
     <div class="row oneMusic-albums">
 
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+      <!-- <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p" *ngFor="">
         <div class="single-album">
           <img src="/assets/img/bg-img/a1.jpg" alt="">
           <div class="album-info">
@@ -25,164 +28,24 @@
             </a>
             <p ng-init="like=1">Second Song {{ like }}</p>
             <i class="fa fa-thumbs-up like-icon" id="album-01" ng-click="myStyle={color:'red'}" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click='like=like-1' [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" (click)="dislikeClick($event)"></i>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p" *ngFor="let a of albumsToDisplay">
+        <div class="single-album">
+          <img src="/assets/img/bg-img/a1.jpg" alt="">{{ a.image }}
+          <div class="album-info">
+              <h5>{{a.title}}</h5>
+            <p ng-init="like=1">{{a.artist}}</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-01" ng-click="myStyle={color:'red'}" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" ng-click='like=like-1' [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" (click)="dislikeClick($event)"></i>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a2.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>Sam Smith</h5>
-            </a>
-            <p>Underground</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-02" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w f r">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a3.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>Will I am</h5>
-            </a>
-            <p>First</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-03" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t g u">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a4.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>The Cure</h5>
-            </a>
-            <p>Second Song</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-04" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d h v">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a5.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>DJ SMITH</h5>
-            </a>
-            <p>The Album</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-05" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t i x">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a6.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>The Ustopable</h5>
-            </a>
-            <p>Unplugged</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-06" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b j y">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a7.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>Beyonce</h5>
-            </a>
-            <p>Songs</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-07" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item a k z">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a8.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>Aam Smith</h5>
-            </a>
-            <p>Underground</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-08" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w l number">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a9.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>Will I am</h5>
-            </a>
-            <p>First</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-09" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d m">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a10.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>DJ SMITH</h5>
-            </a>
-            <p>The Album</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-10" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t n">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a11.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>The Ustopable</h5>
-            </a>
-            <p>Unplugged</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-11" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b o">
-        <div class="single-album">
-          <img src="/assets/img/bg-img/a12.jpg" alt="">
-          <div class="album-info">
-            <a href="albums-store.html#">
-              <h5>Beyonce</h5>
-            </a>
-            <p>Songs</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-12" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" ng-click='like=like-1' (click)="dislikeClick($event)"></i>
-          </div>
-        </div>
-      </div>
 
     </div>
   </div>

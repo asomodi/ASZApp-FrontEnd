@@ -24,6 +24,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AlertComponent } from './alert/alert.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ArtistsComponent } from './artists/artists.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ArtistsComponent } from './artists/artists.component';
     LibraryComponent,
     ContactComponent,
     AlertComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
