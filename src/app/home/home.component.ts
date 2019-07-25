@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.spinner.show();
 
     this.recommendations = JSON.parse(localStorage.getItem('recommendations'));
+
     if (this.recommendations == null) {
       this.recommendataionService.getRecommendations().subscribe(recs => {
         this.recommendations = recs;

@@ -7,8 +7,7 @@ import { map } from 'rxjs/operators';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
-  // private readonly SERVER_URL = "http://192.168.1.209:8080/login";
-   private readonly SERVER_URL = "http://192.168.1.102:8080/login";
+  private readonly SERVER_URL = "http://192.168.1.102:8080/login";
   //private readonly SERVER_URL = "http://localhost:8080/login";
 
   constructor(private http: HttpClient) {

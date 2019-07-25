@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlbumService } from '../_services/album.service';
+import { Album } from '../interfaces/album';
 
 @Component({
   selector: 'app-library',
@@ -12,6 +14,9 @@ export class LibraryComponent implements OnInit {
 
   isThisDislikeClicked = false;
   isThisLikeClicked = false;
+
+  albumsToDisplay: Album[];
+  isAlbumReccomendationFailed = false;
 
   likeClick(event: Event) {
     console.log('like', event);
@@ -33,10 +38,16 @@ export class LibraryComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(private albumService: AlbumService) {
+    this.albumsToDisplay = [];
+  }
 
   ngOnInit() {
-
+    this.albumService.getAlbums().subscribe( completed => {
+      this.albumsToDisplay = completed;
+    }, error => {
+      this.isAlbumReccomendationFailed = true;
+    });
 
   }
 

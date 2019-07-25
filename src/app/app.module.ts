@@ -24,6 +24,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AlertComponent } from './alert/alert.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ArtistsComponent } from './artists/artists.component';
+import { AboutComponent } from './about/about.component';
 import { DislikeModalComponent } from './_modals/dislike-modal/dislike-modal.component';
 
 
@@ -40,6 +41,7 @@ import { DislikeModalComponent } from './_modals/dislike-modal/dislike-modal.com
     LibraryComponent,
     ContactComponent,
     AlertComponent,
+    AboutComponent,
     ArtistsComponent,
     DislikeModalComponent
   ],

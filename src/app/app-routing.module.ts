@@ -9,6 +9,7 @@ import { AuthGuard } from './_helpers/auth.guard';
 import { LibraryComponent } from './library/library.component';
 import { ContactComponent } from './contact/contact.component';
 import { ArtistsComponent } from './artists/artists.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'albums', component: LibraryComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'artists', component: ArtistsComponent }
+  { path: 'history', component: ArtistsComponent },
+  { path: 'about', component: AboutComponent }
 ];
 
 @NgModule({
