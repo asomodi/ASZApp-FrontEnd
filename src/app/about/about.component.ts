@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  toShow = [false, false, false, false, false];
+  toShow = [false, false, false, false, false, false];
 
 
 
