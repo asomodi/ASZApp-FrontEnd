@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 import { RecommendationService } from '../_services/recommendation.service';
 import { Recommendation } from '../interfaces/recommendation';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DislikeModalComponent } from '../_modals/dislike-modal/dislike-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +13,14 @@ import { Recommendation } from '../interfaces/recommendation';
 export class HomeComponent implements OnInit {
 
   recommendations: Recommendation[];
+  recommendationsToDisplay: Recommendation[];
+  index = 12;
 
   constructor(private spinner: NgxSpinnerService,
-    private recommendataionService: RecommendationService) {
+    private recommendataionService: RecommendationService,
+    private modalService: NgbModal) {
     this.recommendations = []
+    this.recommendationsToDisplay = [];
   }
 
   ngOnInit() {
@@ -22,16 +28,50 @@ export class HomeComponent implements OnInit {
     this.spinner.show();
 
     this.recommendations = JSON.parse(localStorage.getItem('recommendations'));
-
-    if (this.recommendations.length == 0) {
+    if (this.recommendations == null) {
       this.recommendataionService.getRecommendations().subscribe(recs => {
         this.recommendations = recs;
+        if (this.recommendations.length >= 12) {
+          this.recommendationsToDisplay = this.recommendations.slice(0, 12);
+        } else {
+          this.recommendationsToDisplay = this.recommendations;
+        }
         this.spinner.hide();
       }, error => {
         this.spinner.hide();
       })
     } else {
       this.spinner.hide();
+      if (this.recommendations.length >= 12) {
+        this.recommendationsToDisplay = this.recommendations.slice(0, 12);
+      } else {
+        this.recommendationsToDisplay = this.recommendations;
+      }
     }
+
+
+  }
+
+  getImgAfterError(r: Recommendation): void {
+    const url = r.img;
+    r.img = null;
+    r.img = url;
+  }
+
+  like(r: Recommendation): void {
+    console.log("like " + r.id);
+  }
+
+  dislike(r: Recommendation): void {
+    const modalRef = this.modalService.open(DislikeModalComponent);
+    modalRef.result.then(() => {
+      this.recommendataionService.deleteRecommendation(r.id).subscribe(success => {
+        const index = this.recommendationsToDisplay.indexOf(r);
+        this.recommendationsToDisplay.splice(index, 1);
+        if (this.index < this.recommendations.length) {
+          this.recommendationsToDisplay.push(this.recommendations[this.index++]);
+      }
+      });
+    });
   }
 }

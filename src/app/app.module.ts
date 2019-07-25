@@ -19,11 +19,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { HomeComponent } from './home/home.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AlertComponent } from './alert/alert.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ArtistsComponent } from './artists/artists.component';
+import { DislikeModalComponent } from './_modals/dislike-modal/dislike-modal.component';
 
 
 @NgModule({
@@ -39,8 +40,10 @@ import { ArtistsComponent } from './artists/artists.component';
     LibraryComponent,
     ContactComponent,
     AlertComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    DislikeModalComponent
   ],
+  entryComponents: [DislikeModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -53,9 +56,9 @@ import { ArtistsComponent } from './artists/artists.component';
     NgxSpinnerModule
   ],
   providers: [
-          { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-          { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-      ],
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

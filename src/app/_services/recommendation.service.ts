@@ -8,16 +8,21 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RecommendationService {
+  deleteRecommendation(id: number):Observable<any> {
+    return this.http.delete(this.SERVER_URL+"/"+id, {withCredentials: true});
+  }
 
-  private readonly SERVER_URL = "http://192.168.1.209:8080/api/allmusicRecommendation";
-
+  // private readonly SERVER_URL = "http://192.168.1.209:8080/api/allmusicRecommendation";
+  private readonly SERVER_URL = "http://192.168.1.102:8080/api/userAlbumRecommendations";
+  private readonly DELETE_URL = "http://192.168.1.102:8080/api/userAlbumRecommendations/id"
   constructor(private http: HttpClient) { }
 
   getRecommendations(): Observable<Recommendation[]> {
-    return this.http.get(this.SERVER_URL, { withCredentials: true }).pipe(map(reco =>{
-        localStorage.setItem('recommendations', JSON.stringify(reco));
-        return reco;
+    return this.http.get(this.SERVER_URL, { withCredentials: true }).pipe(map(reco => {
+      localStorage.setItem('recommendations', JSON.stringify(reco));
+      return reco;
     })) as Observable<Recommendation[]>;
   }
+
 
 }

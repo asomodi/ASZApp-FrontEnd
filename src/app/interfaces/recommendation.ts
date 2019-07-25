@@ -1,5 +1,6 @@
 export interface Recommendation{
-    title: string;
+    id?: number;
+    name: string;
     artist: string;
-    releaseDate: Date;
+    img: string;
 }
