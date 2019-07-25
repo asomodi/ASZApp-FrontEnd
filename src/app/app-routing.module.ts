@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'albums', component: LibraryComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'artists', component: ArtistsComponent },
+  { path: 'history', component: ArtistsComponent },
   { path: 'about', component: AboutComponent }
 ];
 

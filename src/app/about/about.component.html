@@ -8,19 +8,43 @@
 </section>
 
 <div class="team-section">
-  <h1>Our Team</h1>
   <span class="border"></span>
-  <div class="ps" *ngFor="let p of profileToDisplay">
-  <a href="#"><img src="p.image" alt=""></a>
-
-  </div>
-
-  <div class="section" id="p1">
-    <span class="name">{{ p.name }}</span>
-    <span class="border"></span>
-    <p>{{ p.about }}</p>
-  </div>
-
+<div class="ps">
+  <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(0) " (mouseleave)="mouseLeave(0)"></div>
+  <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(1) " (mouseleave)="mouseLeave(1)"></div>
+  <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(2) " (mouseleave)="mouseLeave(2)"></div>
+  <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(3) " (mouseleave)="mouseLeave(3)"></div>
+  <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(4) " (mouseleave)="mouseLeave(4)"></div>
 </div>
 
-<app-footer></app-footer>
+<div class="section hide" id="p1" [ngClass]="{ show: toShow[0]}">
+  <span class="name">Varga Dániel</span>
+  <span class="border"></span>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<div class="section hide" id="p2" [ngClass]="{ show: toShow[1]}">
+  <span class="name">Gulácsy Márk</span>
+  <span class="border"></span>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<div class="section hide" id="p3" [ngClass]="{ show: toShow[2]}">
+  <span class="name">Kurják Richárd</span>
+  <span class="border"></span>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<div class="section hide" id="p4" [ngClass]="{ show: toShow[3]}">
+  <span class="name">Zsiga Kornél</span>
+  <span class="border"></span>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<div class="section hide" id="p5" [ngClass]="{ show: toShow[4]}">
+  <span class="name">Somodi Ákos</span>
+  <span class="border"></span>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+</div>
