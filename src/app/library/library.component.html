@@ -3,35 +3,42 @@
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/breadcumb3.jpg);">
   <div class="bradcumbContent">
     <p>See what’s new</p>
-    <h2>Latest Albums</h2>
+    <h2>My recommendation history</h2>
   </div>
 </section>
 
 
 <section class="album-catagory section-padding-100-0">
+
+
+  <ngx-spinner bdOpacity=0.9 bdColor="#333" size="large" color="#fff" type="line-scale-party" [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+  </ngx-spinner>
+
+  <div class="container d-flex align-items-center justify-content-center" *ngIf="recommendations==null || recommendations.length==0">
+    <h1>You don't have any recommendations</h1>
+  </div>
+
   <div class="container">
-    <div class="alert alert-danger" role="alert" *ngIf="isAlbumReccomendationFailed">
-      The recommendations are broken by the servers.
-    </div>
+      <input type="text" class="form-control mb-3" placeholder="Search" [(ngModel)]="searchTerm">
     <div class="row">
       <div class="col-12">
       </div>
     </div>
     <div class="row oneMusic-albums">
 
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p" *ngFor="let a of albumsToDisplay">
+
+      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p" *ngFor="let r of recommendations | albumSearch : searchTerm">
         <div class="single-album">
-          <img src="/assets/img/bg-img/a1.jpg" alt="">{{ a.image }}
+          <img src={{r.img}} alt="" (error)="getImgAfterError(r)">
           <div class="album-info">
-              <h5>{{a.title}}</h5>
-            <p ng-init="like=1">{{a.artist}}</p>
-            <i class="fa fa-thumbs-up like-icon" id="album-01" ng-click="myStyle={color:'red'}" [ngClass]="{'like-icon-clicked' : isLikeClicked()}" ng-click='like=like+1' (click)="likeClick($event)"></i>
-            <i class="fa fa-thumbs-down dislike-icon" ng-click='like=like-1' [ngClass]="{'dislike-icon-clicked' : isDislikeClicked()}" (click)="dislikeClick($event)"></i>
+            <h5>{{r.name}}</h5>
+            <p ng-init="like=1">{{r.artist}}</p>
+            <i class="fa fa-thumbs-up like-icon" id="album-01" (click)="like(r)"></i>
+            <i class="fa fa-thumbs-down dislike-icon" (click)="dislike(r)"></i>
           </div>
         </div>
       </div>
-
-
 
     </div>
   </div>

@@ -8,11 +8,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RecommendationService {
-  deleteRecommendation(id: number):Observable<any> {
-    return this.http.delete(this.SERVER_URL+"/"+id, {withCredentials: true});
-  }
 
-  private readonly SERVER_URL = "http://192.168.1.102:8080/api/userAlbumRecommendations";
+  private readonly SERVER_URL = "https://app-recordisland.herokuapp.com/api/userAlbumRecommendations";
 
   constructor(private http: HttpClient) { }
 
@@ -23,5 +20,12 @@ export class RecommendationService {
     })) as Observable<Recommendation[]>;
   }
 
+  deleteRecommendation(id: number): Observable<any> {
+    return this.http.delete(this.SERVER_URL + "/" + id, { withCredentials: true });
+  }
+
+  likeRecommendation(id: number): Observable<any> {
+    return this.http.post(this.SERVER_URL + "/" + id, {}, { withCredentials: true });
+  }
 
 }

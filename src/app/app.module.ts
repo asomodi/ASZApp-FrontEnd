@@ -26,6 +26,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ArtistsComponent } from './artists/artists.component';
 import { AboutComponent } from './about/about.component';
 import { DislikeModalComponent } from './_modals/dislike-modal/dislike-modal.component';
+import { AlbumSearchPipe } from './_pipes/album-search.pipe';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { DislikeModalComponent } from './_modals/dislike-modal/dislike-modal.com
     AlertComponent,
     AboutComponent,
     ArtistsComponent,
-    DislikeModalComponent
+    DislikeModalComponent,
+    AlbumSearchPipe
   ],
   entryComponents: [DislikeModalComponent],
   imports: [

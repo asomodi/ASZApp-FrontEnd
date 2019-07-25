@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AlbumService } from '../_services/album.service';
-import { Album } from '../interfaces/album';
+import { Recommendation } from '../interfaces/recommendation';
+import { RecommendationService } from '../_services/recommendation.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DislikeModalComponent } from '../_modals/dislike-modal/dislike-modal.component';
 
 @Component({
   selector: 'app-library',
@@ -9,46 +12,55 @@ import { Album } from '../interfaces/album';
 })
 export class LibraryComponent implements OnInit {
 
-  dislikeColor: string;
-  likeColor: string;
+  recommendations: Recommendation[];
+  searchTerm: string;
 
-  isThisDislikeClicked = false;
-  isThisLikeClicked = false;
-
-  albumsToDisplay: Album[];
-  isAlbumReccomendationFailed = false;
-
-  likeClick(event: Event) {
-    console.log('like', event);
-    this.isThisLikeClicked = true;
-  }
-
-  dislikeClick(event: Event) {
-    console.log('dislike', event);
-    this.isThisDislikeClicked = true;
-  }
-
-  isDislikeClicked(): boolean {
-    return this.isThisDislikeClicked;
-
-  }
-
-  isLikeClicked(): boolean {
-    return this.isThisLikeClicked;
-  }
-
-
-  constructor(private albumService: AlbumService) {
-    this.albumsToDisplay = [];
+  constructor(private spinner: NgxSpinnerService,
+    private recommendataionService: RecommendationService,
+    private modalService: NgbModal) {
+    this.recommendations = [];
+    this.searchTerm = '';
   }
 
   ngOnInit() {
-    this.albumService.getAlbums().subscribe( completed => {
-      this.albumsToDisplay = completed;
-    }, error => {
-      this.isAlbumReccomendationFailed = true;
-    });
+    this.spinner.show();
 
+    this.recommendations = JSON.parse(localStorage.getItem('recommendations'));
+
+    if (this.recommendations == null) {
+      this.recommendataionService.getRecommendations().subscribe(recs => {
+        this.recommendations = recs;
+        this.spinner.hide();
+      }, error => {
+        this.spinner.hide();
+      })
+    } else {
+      this.spinner.hide();
+    }
+
+  }
+
+  getImgAfterError(r: Recommendation): void {
+    const url = r.img;
+    r.img = null;
+    r.img = url;
+  }
+
+  like(r: Recommendation): void {
+    this.recommendataionService.likeRecommendation(r.id).subscribe(success => {
+      const index = this.recommendations.indexOf(r);
+      this.recommendations.splice(index, 1);
+    });
+  }
+
+  dislike(r: Recommendation): void {
+    const modalRef = this.modalService.open(DislikeModalComponent);
+    modalRef.result.then(() => {
+      this.recommendataionService.deleteRecommendation(r.id).subscribe(success => {
+        const index = this.recommendations.indexOf(r);
+        this.recommendations.splice(index, 1);
+      });
+    });
   }
 
 }

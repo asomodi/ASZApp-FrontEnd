@@ -60,7 +60,15 @@ export class HomeComponent implements OnInit {
   }
 
   like(r: Recommendation): void {
-    console.log("like " + r.id);
+    this.recommendataionService.likeRecommendation(r.id).subscribe(success => {
+      const index = this.recommendationsToDisplay.indexOf(r);
+      this.recommendationsToDisplay.splice(index, 1);
+      if (this.index < this.recommendations.length) {
+        this.recommendationsToDisplay.push(this.recommendations[this.index++]);
+      }
+      const indexToDelete = this.recommendations.indexOf(r);
+      this.recommendations.splice(indexToDelete, 1);
+    });
   }
 
   dislike(r: Recommendation): void {
@@ -71,7 +79,9 @@ export class HomeComponent implements OnInit {
         this.recommendationsToDisplay.splice(index, 1);
         if (this.index < this.recommendations.length) {
           this.recommendationsToDisplay.push(this.recommendations[this.index++]);
-      }
+        }
+        const indexToDelete = this.recommendations.indexOf(r);
+        this.recommendations.splice(indexToDelete, 1);
       });
     });
   }
