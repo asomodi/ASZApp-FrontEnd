@@ -50,6 +50,7 @@ export class LibraryComponent implements OnInit {
     this.recommendataionService.likeRecommendation(r.id).subscribe(success => {
       const index = this.recommendations.indexOf(r);
       this.recommendations.splice(index, 1);
+      localStorage.setItem('recommendations', JSON.stringify(this.recommendations));
     });
   }
 
@@ -59,6 +60,7 @@ export class LibraryComponent implements OnInit {
       this.recommendataionService.deleteRecommendation(r.id).subscribe(success => {
         const index = this.recommendations.indexOf(r);
         this.recommendations.splice(index, 1);
+        localStorage.setItem('recommendations', JSON.stringify(this.recommendations));
       });
     });
   }

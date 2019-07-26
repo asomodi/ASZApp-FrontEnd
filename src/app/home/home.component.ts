@@ -68,6 +68,7 @@ export class HomeComponent implements OnInit {
       }
       const indexToDelete = this.recommendations.indexOf(r);
       this.recommendations.splice(indexToDelete, 1);
+      localStorage.setItem('recommendations', JSON.stringify(this.recommendations));
     });
   }
 
@@ -82,6 +83,7 @@ export class HomeComponent implements OnInit {
         }
         const indexToDelete = this.recommendations.indexOf(r);
         this.recommendations.splice(indexToDelete, 1);
+        localStorage.setItem('recommendations', JSON.stringify(this.recommendations));
       });
     });
   }

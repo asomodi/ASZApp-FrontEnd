@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'albums', component: LibraryComponent },
+  { path: 'albums', component: LibraryComponent, canActivate: [AuthGuard] },
   { path: 'contact', component: ContactComponent },
   { path: 'artists', component: ArtistsComponent },
   { path: 'about', component: AboutComponent }
