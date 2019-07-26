@@ -1,51 +1,68 @@
 <app-header></app-header>
 
-<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/breadcumb.jpg);">
-  <div class="bradcumbContent">
-    <p>Hello!</p>
-    <h2>Who we are</h2>
+<div class=”main-container”>
+  <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/breadcumb.jpg);">
+    <div class="bradcumbContent">
+      <p>Hello!</p>
+      <h2>Who we are</h2>
+    </div>
+  </section>
+
+  <div class="team-section">
+    <span class="border"></span>
+    <div class="ps">
+      <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(0) " (mouseleave)="mouseLeave(0)"></div>
+      <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(1) " (mouseleave)="mouseLeave(1)"></div>
+      <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(2) " (mouseleave)="mouseLeave(2)"></div>
+      <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(3) " (mouseleave)="mouseLeave(3)"></div>
+      <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(4) " (mouseleave)="mouseLeave(4)"></div>
+      <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(5) " (mouseleave)="mouseLeave(5)"></div>
+    </div>
+
+    <div class="section hide" id="p1" [ngClass]="{ show: toShow[0]}">
+      <span class="name">Varga Dániel</span>
+      <span class="border"></span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="section hide" id="p2" [ngClass]="{ show: toShow[1]}">
+      <span class="name">Gulácsy Márk</span>
+      <span class="border"></span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="section hide" id="p3" [ngClass]="{ show: toShow[2]}">
+      <span class="name">Kurják Richárd</span>
+      <span class="border"></span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="section hide" id="p4" [ngClass]="{ show: toShow[3]}">
+      <span class="name">Zsiga Kornél</span>
+      <span class="border"></span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="section hide" id="p5" [ngClass]="{ show: toShow[4]}">
+      <span class="name">Somodi Ákos</span>
+      <span class="border"></span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="section hide" id="p6" [ngClass]="{ show: toShow[5]}">
+      <span class="name">Varga János</span>
+      <span class="border"></span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
   </div>
-</section>
 
-<div class="team-section">
-  <span class="border"></span>
-<div class="ps">
-  <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(0) " (mouseleave)="mouseLeave(0)"></div>
-  <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(1) " (mouseleave)="mouseLeave(1)"></div>
-  <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(2) " (mouseleave)="mouseLeave(2)"></div>
-  <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(3) " (mouseleave)="mouseLeave(3)"></div>
-  <div class="profilePic"><img src="/assets/img/bg-img/img666.jpg" alt="" (mouseenter)="mouseEnter(4) " (mouseleave)="mouseLeave(4)"></div>
-</div>
-
-<div class="section hide" id="p1" [ngClass]="{ show: toShow[0]}">
-  <span class="name">Varga Dániel</span>
-  <span class="border"></span>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
-
-<div class="section hide" id="p2" [ngClass]="{ show: toShow[1]}">
-  <span class="name">Gulácsy Márk</span>
-  <span class="border"></span>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
-
-<div class="section hide" id="p3" [ngClass]="{ show: toShow[2]}">
-  <span class="name">Kurják Richárd</span>
-  <span class="border"></span>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
-
-<div class="section hide" id="p4" [ngClass]="{ show: toShow[3]}">
-  <span class="name">Zsiga Kornél</span>
-  <span class="border"></span>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
-
-<div class="section hide" id="p5" [ngClass]="{ show: toShow[4]}">
-  <span class="name">Somodi Ákos</span>
-  <span class="border"></span>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
 
 </div>
 

@@ -73,3 +73,11 @@
 .show {
   opacity: 1;
 }
+
+.container {
+ min-height: 100vh; /* will cover the 100% of viewport */
+}
+
+.app-footer {
+ width: 100%;
+}
