@@ -27,6 +27,8 @@ import { ArtistsComponent } from './artists/artists.component';
 import { AboutComponent } from './about/about.component';
 import { DislikeModalComponent } from './_modals/dislike-modal/dislike-modal.component';
 import { AlbumSearchPipe } from './_pipes/album-search.pipe';
+import { VerifyComponent } from './verify/verify.component';
+import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { AlbumSearchPipe } from './_pipes/album-search.pipe';
     AboutComponent,
     ArtistsComponent,
     DislikeModalComponent,
-    AlbumSearchPipe
+    AlbumSearchPipe,
+    VerifyComponent,
+    SpotifyLoginComponent
   ],
   entryComponents: [DislikeModalComponent],
   imports: [

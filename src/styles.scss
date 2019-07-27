@@ -11,7 +11,6 @@
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 /* :: 3.0 Base CSS */
 
-
 * {
   margin: 0;
   padding: 0;
@@ -514,13 +513,13 @@ img {
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .header-area .oneMusic-main-menu .classy-navbar .classynav ul li a {
-    background-color: #000000;
+    //background-color: #000000;
     border-bottom-color: rgba(255, 255, 255, 0.1);
   }
 }
 @media only screen and (max-width: 767px) {
   .header-area .oneMusic-main-menu .classy-navbar .classynav ul li a {
-    background-color: #000000;
+    //background-color: #000000;
     border-bottom-color: rgba(255, 255, 255, 0.1);
   }
 }
@@ -591,13 +590,13 @@ img {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .header-area .oneMusic-main-menu .login-register-cart-button {
     margin-left: 12px;
-    margin-top: 15px;
+    //margin-top: 15px;
   }
 }
 @media only screen and (max-width: 767px) {
   .header-area .oneMusic-main-menu .login-register-cart-button {
     margin-left: 12px;
-    margin-top: 15px;
+    //margin-top: 15px;
   }
 }
 
@@ -1075,7 +1074,7 @@ img {
 }
 @media only screen and (max-width: 767px) {
   .featured-artist-content {
-    margin-top: 50px;
+    //margin-top: 50px;
   }
 }
 

@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/breadcumb3.jpg);">
+  <div class="bradcumbContent">
+
+    <p>See what’s new</p>
+    <h2>Registration Verification</h2>
+  </div>
+</section>
+
+<ngx-spinner bdOpacity=0.9 bdColor="#333" size="medium" color="#fff" type="ball-rotate" [fullScreen]="false">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+<div class="container mt-50">
+
+  <div class="alert alert-success" role="alert" *ngIf="showSuccess">
+    Successful verification!
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="showError">
+    Invalid token :/
+  </div>
+</div>
+<div class="container d-flex align-items-center justify-content-center" *ngIf="showSuccess">
+  <a data-animation="fadeInUp" data-delay="500ms" routerLink="/login" class="btn oneMusic-btn"> Login <i class="fa fa-angle-double-right"></i></a>
+</div>
+<div class="container d-flex align-items-center justify-content-center" *ngIf="showError">
+  <a data-animation="fadeInUp" data-delay="500ms" routerLink="/index" class="btn oneMusic-btn"> Back <i class="fa fa-angle-double-left"></i></a>
+</div>

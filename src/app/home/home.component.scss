@@ -1,13 +1,58 @@
 .like-icon {
-  color: #4267B2;
+  // color: #4267B2;
+  color: #006600;
   font-size: 20px;
   padding-right: 8px;
   cursor: pointer;
 }
 
 .dislike-icon {
-  color: #000000;
+  // color: #000000;
+  color: #CC0000;
   font-size: 20px;
   padding-top: 2px;
   cursor: pointer;
+}
+
+.top-right {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.album-name {
+  min-height: 60px;
+}
+
+.album-image {
+  min-height: 160px;
+}
+/*
+
+
+We're using CSS transitions for when
+  the enter and move events are triggered
+  for the element that has the .repeated-item
+  class
+*/
+
+.repeated-item.ng-enter,
+.repeated-item.ng-move {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  opacity: 0;
+}
+/*
+ The ng-enter-active and ng-move-active
+ are where the transition destination properties
+ are set so that the animation knows what to
+ animate.
+*/
+
+.repeated-item.ng-enter.ng-enter-active,
+.repeated-item.ng-move.ng-move-active {
+  opacity: 1;
 }

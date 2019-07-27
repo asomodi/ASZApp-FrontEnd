@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 export class RecommendationService {
 
   private readonly SERVER_URL = "https://app-recordisland.herokuapp.com/api/userAlbumRecommendations";
+  private readonly SPOTIFY_URL = "https://app-recordisland.herokuapp.com/api/spotify/"
 
   constructor(private http: HttpClient) { }
 
@@ -28,4 +29,15 @@ export class RecommendationService {
     return this.http.post(this.SERVER_URL + "/" + id, {}, { withCredentials: true });
   }
 
+  getSpotifyTracks(): Observable<any>{
+      return this.http.get(this.SPOTIFY_URL+"getTracks", {withCredentials: true});
+  }
+
+  getSpotifyAutorizationCode(): Observable<any>{
+      return this.http.get(this.SPOTIFY_URL+"authorizationCodeUri", {withCredentials: true});
+  }
+
+  sendSpotifyCode(code: string): Observable<any>{
+      return this.http.get(this.SPOTIFY_URL+"callback", {params: {code: code}, withCredentials: true});
+  }
 }

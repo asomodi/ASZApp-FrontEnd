@@ -4,6 +4,7 @@ import { RecommendationService } from '../_services/recommendation.service';
 import { Recommendation } from '../interfaces/recommendation';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DislikeModalComponent } from '../_modals/dislike-modal/dislike-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   index = 12;
 
   constructor(private spinner: NgxSpinnerService,
+      private router: Router,
     private recommendataionService: RecommendationService,
     private modalService: NgbModal) {
     this.recommendations = []
@@ -86,5 +88,16 @@ export class HomeComponent implements OnInit {
         localStorage.setItem('recommendations', JSON.stringify(this.recommendations));
       });
     });
+  }
+
+  getTracks(): void{
+      this.recommendataionService.getSpotifyTracks().subscribe(succes=>{
+         console.log(succes);
+     },error=>{
+         this.recommendataionService.getSpotifyAutorizationCode().subscribe(success2=>{
+             //this.router.navigate([success2.uri]);
+             window.location.href =success2.uri;
+         });
+     });
   }
 }

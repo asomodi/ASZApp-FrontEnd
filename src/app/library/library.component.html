@@ -20,14 +20,8 @@
   </div>
 
   <div class="container">
-      <input type="text" class="form-control mb-3" placeholder="Search" [(ngModel)]="searchTerm">
-    <div class="row">
-      <div class="col-12">
-      </div>
-    </div>
+    <input type="text" class="form-control mb-3" placeholder="Search" [(ngModel)]="searchTerm">
     <div class="row oneMusic-albums">
-
-
       <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p" *ngFor="let r of recommendations | albumSearch : searchTerm">
         <div class="single-album">
           <img src={{r.img}} alt="" (error)="getImgAfterError(r)">
@@ -41,6 +35,9 @@
       </div>
 
     </div>
+  </div>
+  <div class="container d-flex align-items-center justify-content-center" *ngIf="(recommendations|albumSearch : searchTerm).length==0">
+    <h1>No search results</h1>
   </div>
 </section>
 

@@ -10,6 +10,8 @@ import { LibraryComponent } from './library/library.component';
 import { ContactComponent } from './contact/contact.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { AboutComponent } from './about/about.component';
+import { VerifyComponent } from './verify/verify.component';
+import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
 
 
 
@@ -22,7 +24,9 @@ const routes: Routes = [
   { path: 'albums', component: LibraryComponent, canActivate: [AuthGuard] },
   { path: 'contact', component: ContactComponent },
   { path: 'artists', component: ArtistsComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'verify', component: VerifyComponent },
+  { path: 'api/spotify/callback', component: SpotifyLoginComponent},
 ];
 
 @NgModule({
