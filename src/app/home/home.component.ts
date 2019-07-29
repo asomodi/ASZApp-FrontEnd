@@ -4,7 +4,7 @@ import { RecommendationService } from '../_services/recommendation.service';
 import { Recommendation } from '../interfaces/recommendation';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DislikeModalComponent } from '../_modals/dislike-modal/dislike-modal.component';
-import { Router } from '@angular/router';
+import { SpotifyService } from '../_services/spotify.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   index = 12;
 
   constructor(private spinner: NgxSpinnerService,
-      private router: Router,
+    private spotifyService: SpotifyService,
     private recommendataionService: RecommendationService,
     private modalService: NgbModal) {
     this.recommendations = []
@@ -90,14 +90,14 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getTracks(): void{
-      this.recommendataionService.getSpotifyTracks().subscribe(succes=>{
-         console.log(succes);
-     },error=>{
-         this.recommendataionService.getSpotifyAutorizationCode().subscribe(success2=>{
-             //this.router.navigate([success2.uri]);
-             window.location.href =success2.uri;
-         });
-     });
+  getTracks(): void {
+    this.spotifyService.getSpotifyTracks().subscribe(succes => {
+      console.log(succes);
+    }, error => {
+      this.spotifyService.getSpotifyAutorizationCode().subscribe(success2 => {
+        //this.router.navigate([success2.uri]);
+        window.location.href = success2.uri;
+      });
+    });
   }
 }

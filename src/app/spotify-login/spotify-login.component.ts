@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RecommendationService } from '../_services/recommendation.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SpotifyService } from '../_services/spotify.service';
 
 @Component({
   selector: 'app-spotify-login',
@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SpotifyLoginComponent implements OnInit {
 
-  constructor(private recommendataionService: RecommendationService,
+  constructor(private spotifyService: SpotifyService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -17,7 +17,7 @@ export class SpotifyLoginComponent implements OnInit {
   ngOnInit() {
     const code = this.route.snapshot.queryParamMap.get('code');
     console.log(code);
-    this.recommendataionService.sendSpotifyCode(code).subscribe(success=>{
+    this.spotifyService.sendSpotifyCode(code).subscribe(success=>{
         this.router.navigate(['/home']);
     });
 

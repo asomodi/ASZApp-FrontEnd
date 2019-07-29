@@ -4,11 +4,24 @@ import { RecommendationService } from '../_services/recommendation.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DislikeModalComponent } from '../_modals/dislike-modal/dislike-modal.component';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-library',
   templateUrl: './library.component.html',
-  styleUrls: ['./library.component.scss']
+  styleUrls: ['./library.component.scss'],
+  animations: [
+    trigger('itemState', [
+      state('visible', style({ 'opacity': '1' })),
+      transition('void => *', [
+        style({ 'opacity': '0' }),
+        animate('0.5s ease-out')
+      ]),
+      transition('* => void', [
+        animate(200, style({ opacity: 0 }))
+    ])
+  ])
+    ]
 })
 export class LibraryComponent implements OnInit {
 
@@ -37,7 +50,6 @@ export class LibraryComponent implements OnInit {
     } else {
       this.spinner.hide();
     }
-
   }
 
   getImgAfterError(r: Recommendation): void {

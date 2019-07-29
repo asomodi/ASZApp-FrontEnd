@@ -1,13 +1,29 @@
 .like-icon {
-  color: #4267B2;
-  font-size: 20px;
+  color: #006600;
+  font-size: 30px;
   padding-right: 8px;
   cursor: pointer;
 }
 
 .dislike-icon {
-  color: #000000;
-  font-size: 20px;
+  color: #CC0000;
+  font-size: 30px;
   padding-top: 2px;
   cursor: pointer;
+}
+
+.album-name {
+  min-height: 60px;
+}
+
+.album-image {
+  min-height: 160px;
+}
+
+.artist {
+  min-height: 60px;
+}
+
+.album-catagory{
+    min-height: 60vh;
 }

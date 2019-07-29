@@ -7,10 +7,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertService } from 'src/app/_services/alert.service';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -74,7 +76,11 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          this.alertService.error(error.exception);
+            let msg = error.exception;
+            if(msg==null){
+                msg="Something went wrong. Please try again later"
+            }
+          this.alertService.error(msg);
           this.loading = false;
         });
   }
