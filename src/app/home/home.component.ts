@@ -44,16 +44,17 @@ export class HomeComponent implements OnInit {
         this.spinner.hide();
       })
     } else {
-      this.spinner.hide();
       if (this.recommendations.length >= 12) {
         this.recommendationsToDisplay = this.recommendations.slice(0, 12);
       } else {
         this.recommendationsToDisplay = this.recommendations;
       }
+      this.spinner.hide();
     }
 
 
   }
+
 
   getImgAfterError(r: Recommendation): void {
     const url = r.img;

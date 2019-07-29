@@ -27,12 +27,14 @@ export class LibraryComponent implements OnInit {
 
   recommendations: Recommendation[];
   searchTerm: string;
+  searchDate: Date;
 
   constructor(private spinner: NgxSpinnerService,
     private recommendataionService: RecommendationService,
     private modalService: NgbModal) {
     this.recommendations = [];
     this.searchTerm = '';
+    this.searchDate = new Date();
   }
 
   ngOnInit() {
@@ -59,7 +61,7 @@ export class LibraryComponent implements OnInit {
   }
 
   like(r: Recommendation): void {
-    this.recommendataionService.likeRecommendation(r.id).subscribe(success => {
+    this.recommendataionService.likeRecommendation(r.id).subscribe(() => {
       const index = this.recommendations.indexOf(r);
       this.recommendations.splice(index, 1);
       localStorage.setItem('recommendations', JSON.stringify(this.recommendations));
@@ -69,10 +71,11 @@ export class LibraryComponent implements OnInit {
   dislike(r: Recommendation): void {
     const modalRef = this.modalService.open(DislikeModalComponent);
     modalRef.result.then(() => {
-      this.recommendataionService.deleteRecommendation(r.id).subscribe(success => {
+      this.recommendataionService.deleteRecommendation(r.id).subscribe(() => {
         const index = this.recommendations.indexOf(r);
         this.recommendations.splice(index, 1);
         localStorage.setItem('recommendations', JSON.stringify(this.recommendations));
+        this.searchDate = new Date();
       });
     });
   }
