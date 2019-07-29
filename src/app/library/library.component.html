@@ -22,7 +22,7 @@
   <div class="container">
     <input type="text" class="form-control mb-3" placeholder="Search by artist" [(ngModel)]="searchTerm" *ngIf="recommendations.length!=0">
     <div class="row oneMusic-albums">
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item" *ngFor="let r of recommendations | albumSearch : searchTerm" [@itemState]="'visible'">
+      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item" *ngFor="let r of recommendations | albumSearch : searchTerm : searchDate" [@itemState]="'visible'">
         <div class="single-album">
           <div class="album-image"><img src={{r.img}} alt="" (error)="getImgAfterError(r)"></div>
           <div class="album-info">
@@ -40,7 +40,7 @@
 
     </div>
   </div>
-  <div class="container d-flex align-items-center justify-content-center" *ngIf="(recommendations|albumSearch : searchTerm).length==0 && recommendations.length!=0">
+  <div class="container d-flex align-items-center justify-content-center" *ngIf="(recommendations|albumSearch : searchTerm : searchDate).length==0 && recommendations.length!=0">
     <h1>No search results</h1>
   </div>
 </section>

@@ -6,7 +6,7 @@ import { Recommendation } from '../interfaces/recommendation';
 })
 export class AlbumSearchPipe implements PipeTransform {
 
-  transform(recommendation: Recommendation[], searchTerm: string): Recommendation[] {
+  transform(recommendation: Recommendation[], searchTerm: string, searchDate: Date): Recommendation[] {
     return searchTerm === '' ? recommendation : recommendation.filter(r => r.artist.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()));
   }
 
