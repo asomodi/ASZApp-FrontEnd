@@ -3,4 +3,5 @@ export interface Recommendation{
     name: string;
     artist: string;
     img: string;
+    added?: boolean;
 }

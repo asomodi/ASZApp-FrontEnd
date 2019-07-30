@@ -19,6 +19,13 @@
   </div>
 
   <div class="container">
+    <div class="alert alert-danger d-flex align-items-center justify-content-between " role="alert" *ngIf="notFound" (click)="notFound = false" [@itemState]="'visible'">
+      <span></span>
+      We can't find this album on spotify. Sorry
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <div class="row">
       <div class="col-12">
       </div>
@@ -26,16 +33,17 @@
     <div class="row oneMusic-albums">
 
 
-      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item" *ngFor="let r of recommendationsToDisplay">
+      <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item" *ngFor="let r of recommendationsToDisplay" [@itemState]="'visible'">
         <div class="single-album">
-          <div class="album-image"><img src={{r.img}} alt="" (error)="getImgAfterError(r)"></div>
-          <div class="top-right"><i class="fa fa-plus-square fa-3x" title="Add to spotify playlist"></i></div>
+          <div class="album-image"><img src={{r.img}} alt="" (error)="getImgAfterError(r)" (click)="openAlbumModal(r)"></div>
+          <div class="top-right" *ngIf="!r.added"><i class="fa fa-plus-square fa-2x  hide" title="Add to spotify playlist" (click)="addToSpotify(r)"></i></div>
+          <div class="top-right" *ngIf="r.added"><i class="fa fa-check-square fa-2x" title="Added to spotify playlist"></i></div>
           <div class="album-info">
             <div class="album-name">
               <h5>{{r.name}}</h5>
             </div>
             <div class="artist">
-                <p>{{r.artist}}</p>
+              <p>{{r.artist}}</p>
             </div>
             <i class="fa fa-thumbs-up like-icon" id="album-01" (click)="like(r)" title="Like this song"></i>
             <i class="fa fa-thumbs-down dislike-icon" (click)="dislike(r)" title="Dislike this song"></i>

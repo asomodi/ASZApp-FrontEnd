@@ -1,5 +1,4 @@
 .like-icon {
-  // color: #4267B2;
   color: #006600;
   font-size: 30px;
   padding-right: 8px;
@@ -7,7 +6,6 @@
 }
 
 .dislike-icon {
-  // color: #000000;
   color: #CC0000;
   font-size: 30px;
   padding-top: 2px;
@@ -19,6 +17,7 @@
   top: 12px;
   right: 12px;
   cursor: pointer;
+  text-shadow: 0 0 15px white;
 }
 
 .album-name {
@@ -33,6 +32,14 @@
   min-height: 60px;
 }
 
-.album-catagory{
-    min-height: 60vh;
+.album-catagory {
+  min-height: 60vh;
+}
+
+.hide {
+  display: none;
+}
+
+.single-album:hover .hide {
+  display: block;
 }
