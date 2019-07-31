@@ -23,7 +23,7 @@
     <div class="modal-body" *ngFor="let t of tracks">
       <div class="d-flex justify-content-between align-items-center">
         <h6>{{t.name}}</h6>
-        <audio preload="auto" controls>
+        <audio preload="auto" controls #player>
           <source src={{t.previewUrl}}>
         </audio>
       </div>

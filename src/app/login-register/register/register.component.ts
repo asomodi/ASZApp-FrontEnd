@@ -31,7 +31,8 @@ export class RegisterComponent implements OnInit {
       username: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       lastFmUsername: [''],
-      spotifyUsername: ['']
+      spotifyUsername: [''],
+      hasNewsLetter: [false]
     });
   }
 
@@ -55,7 +56,6 @@ export class RegisterComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.alertService.success('Registration successful', true);
           this.router.navigate(['/login'], { queryParams: { registered: true } });
         },
         error => {

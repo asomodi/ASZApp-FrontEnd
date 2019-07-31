@@ -35,7 +35,10 @@
 
       <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item" *ngFor="let r of recommendationsToDisplay" [@itemState]="'visible'">
         <div class="single-album">
-          <div class="album-image"><img src={{r.img}} alt="" (error)="getImgAfterError(r)" (click)="openAlbumModal(r)"></div>
+          <div class="album-image">
+            <mat-spinner color="accent" style="margin:0 auto; z-index: 0 ; position: absolute; left: 19%; top: 8%;" *ngIf="r.spinner"></mat-spinner>
+            <img src={{r.img}} alt="" (error)="getImgAfterError(r)" (click)="openAlbumModal(r)">
+          </div>
           <div class="top-right" *ngIf="!r.added"><i class="fa fa-plus-square fa-2x  hide" title="Add to spotify playlist" (click)="addToSpotify(r)"></i></div>
           <div class="top-right" *ngIf="r.added"><i class="fa fa-check-square fa-2x" title="Added to spotify playlist"></i></div>
           <div class="album-info">

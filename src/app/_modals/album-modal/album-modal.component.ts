@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, ElementRef, AfterViewInit, QueryList } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Recommendation } from 'src/app/interfaces/recommendation';
 import { SpotifyService } from 'src/app/_services/spotify.service';
@@ -9,7 +9,10 @@ import { Track } from 'src/app/interfaces/track';
   templateUrl: './album-modal.component.html',
   styleUrls: ['./album-modal.component.scss']
 })
-export class AlbumModalComponent implements OnInit {
+export class AlbumModalComponent implements OnInit, AfterViewInit {
+
+  @ViewChildren('player')
+  players: QueryList<ElementRef>;
 
   @Input()
   recommendation: Recommendation;
@@ -25,6 +28,7 @@ export class AlbumModalComponent implements OnInit {
       success => {
         this.loaded = true;
         this.tracks = success;
+        setTimeout( () => { this.hookPlayListeners(); }, 20 ); // TODO this is dirty.
       },
       error => {
         this.loaded = true;
@@ -38,6 +42,19 @@ export class AlbumModalComponent implements OnInit {
       }
 
     );
+  }
+
+  hookPlayListeners(): void {
+      this.players.forEach( elem => {
+          const _this = this;
+          elem.nativeElement.onplay = function() {
+              _this.players.forEach(p => {
+                  if (p.nativeElement !== this) {
+                      (p.nativeElement as HTMLAudioElement).pause();
+                  }
+              });
+          };
+      } );
   }
 
 }

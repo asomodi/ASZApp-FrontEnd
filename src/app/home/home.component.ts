@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 import { RecommendationService } from '../_services/recommendation.service';
 import { Recommendation } from '../interfaces/recommendation';
@@ -74,8 +74,6 @@ export class HomeComponent implements OnInit {
       this.spinner.hide();
     }
 
-
-
   }
 
   getImgAfterError(r: Recommendation): void {
@@ -85,7 +83,9 @@ export class HomeComponent implements OnInit {
   }
 
   like(r: Recommendation): void {
+    r.spinner = true;
     this.recommendataionService.likeRecommendation(r.id).subscribe(success => {
+      r.spinner = false;
       const index = this.recommendationsToDisplay.indexOf(r);
       this.recommendationsToDisplay.splice(index, 1);
       if (this.index < this.recommendations.length) {
@@ -98,15 +98,18 @@ export class HomeComponent implements OnInit {
   }
 
   openAlbumModal(r: Recommendation): void {
-    const modalRef = this.modalService.open(AlbumModalComponent, { centered: true , size: 'lg' });
+    const modalRef = this.modalService.open(AlbumModalComponent, { centered: true, size: 'lg' });
     modalRef.componentInstance.recommendation = Object.assign({}, r);
-    modalRef.result.then(() => { });
+    modalRef.result.then(() => { }).catch(() => {});
   }
 
   dislike(r: Recommendation): void {
+
     const modalRef = this.modalService.open(DislikeModalComponent);
     modalRef.result.then(() => {
+      r.spinner = true;
       this.recommendataionService.deleteRecommendation(r.id).subscribe(success => {
+        r.spinner = false;
         const index = this.recommendationsToDisplay.indexOf(r);
         this.recommendationsToDisplay.splice(index, 1);
         if (this.index < this.recommendations.length) {
@@ -131,17 +134,18 @@ export class HomeComponent implements OnInit {
   }
 
   addToSpotify(r: Recommendation): void {
+    sessionStorage.setItem('currentAlbum', JSON.stringify(r));
     this.spotifyService.addToPlaylist(r.artist, r.name).subscribe(success => {
       r.added = true;
     }, error => {
-    if(error.code===404){
+      if (error.code === 404) {
         this.notFound = true;
-         window.scrollTo(0,0);
-        setTimeout(()=>{
-            this.notFound=false;
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+          this.notFound = false;
         }, 5000);
         return;
-    }
+      }
       this.spotifyService.getSpotifyAutorizationCode().subscribe(success2 => {
         //this.router.navigate([success2.uri]);
         window.location.href = success2.uri;

@@ -6,5 +6,6 @@ export interface NewUser {
   confirmPassword?: string;
   spotify?: string;
   lastfm?: string;
+  hasNewsLetter: boolean;
 
 }

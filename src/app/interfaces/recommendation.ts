@@ -4,4 +4,5 @@ export interface Recommendation{
     artist: string;
     img: string;
     added?: boolean;
+    spinner?: boolean;
 }
