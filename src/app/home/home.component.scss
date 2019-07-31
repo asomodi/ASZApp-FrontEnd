@@ -17,7 +17,6 @@
   top: 12px;
   right: 12px;
   cursor: pointer;
-  text-shadow: 0 0 15px white;
 }
 
 .album-name {
@@ -36,10 +35,28 @@
   min-height: 60vh;
 }
 
+.single-album .top-right button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.single-album .top-right i{
+    text-shadow: 0 0 15px white;
+}
+
+.single-album .top-right button i {
+}
+
 .hide {
   display: none;
 }
 
+.single-album.hovered .hide,
 .single-album:hover .hide {
   display: block;
+}
+
+.white h5 {
+  color: white;
 }

@@ -27,6 +27,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'verify', component: VerifyComponent },
   { path: 'api/spotify/callback', component: SpotifyLoginComponent},
+
+  { path: '**', redirectTo: 'index' }
 ];
 
 @NgModule({

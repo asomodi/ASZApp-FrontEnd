@@ -5,4 +5,5 @@ export interface Recommendation{
     img: string;
     added?: boolean;
     spinner?: boolean;
+    opened?: boolean;
 }

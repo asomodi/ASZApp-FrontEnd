@@ -31,4 +31,17 @@ export class SpotifyService {
   getAlbumTracks(artist: string, name: string): Observable<any> {
     return this.http.get(this.SPOTIFY_URL + "getAlbumTracks", { params: { artist: artist, album: name }, withCredentials: true });
   }
+
+  getPlaylists(): Observable<any> {
+    return this.http.get(this.SPOTIFY_URL + "getUserPlaylists", { withCredentials: true });
+  }
+
+  addAlbumToPlaylist(playlistId: string, artist: string, album: string): Observable<any> {
+    return this.http.post(this.SPOTIFY_URL+"addAlbumToPlaylist", {
+        //playlistName: playlistName,
+        playlistId: playlistId,
+        album: album,
+        artist: artist
+    }, {withCredentials: true});
+  }
 }

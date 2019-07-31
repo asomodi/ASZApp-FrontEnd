@@ -15,12 +15,11 @@ export class AuthenticationService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue(): BehaviorSubject<any> {
+  public get currentUserValue() {
     return this.currentUserSubject.value;
   }
 
   login(f: FormData): Observable<any> {
-      console.log();
     return this.http.post<any>(this.SERVER_URL+"login", f, {withCredentials: true})
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes

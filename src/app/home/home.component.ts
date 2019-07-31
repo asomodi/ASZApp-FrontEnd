@@ -7,6 +7,7 @@ import { DislikeModalComponent } from '../_modals/dislike-modal/dislike-modal.co
 import { SpotifyService } from '../_services/spotify.service';
 import { AlbumModalComponent } from '../_modals/album-modal/album-modal.component';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Playlist } from '../interfaces/playlist';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,9 @@ export class HomeComponent implements OnInit {
   index = 12;
   added = false;
   notFound = false;
+  playlists: Playlist[];
+  menuSpinner: boolean;
+  open = false;
 
   constructor(private spinner: NgxSpinnerService,
     private spotifyService: SpotifyService,
@@ -57,7 +61,8 @@ export class HomeComponent implements OnInit {
         }
         this.spinner.hide();
         for (let i = 0; i < this.recommendations.length; i++) {
-          this.recommendations[i].added = false;;
+          this.recommendations[i].added = false;
+          this.recommendations[i].opened = false;
         }
       }, error => {
         this.spinner.hide();
@@ -69,7 +74,8 @@ export class HomeComponent implements OnInit {
         this.recommendationsToDisplay = this.recommendations;
       }
       for (let i = 0; i < this.recommendations.length; i++) {
-        this.recommendations[i].added = false;;
+        this.recommendations[i].added = false;
+        this.recommendations[i].opened = false;
       }
       this.spinner.hide();
     }
@@ -100,7 +106,7 @@ export class HomeComponent implements OnInit {
   openAlbumModal(r: Recommendation): void {
     const modalRef = this.modalService.open(AlbumModalComponent, { centered: true, size: 'lg' });
     modalRef.componentInstance.recommendation = Object.assign({}, r);
-    modalRef.result.then(() => { }).catch(() => {});
+    modalRef.result.then(() => { }).catch((error) => { });
   }
 
   dislike(r: Recommendation): void {
@@ -123,6 +129,7 @@ export class HomeComponent implements OnInit {
   }
 
   getTracks(): void {
+
     this.spotifyService.getSpotifyTracks().subscribe(succes => {
       console.log(succes);
     }, error => {
@@ -131,6 +138,39 @@ export class HomeComponent implements OnInit {
         window.location.href = success2.uri;
       });
     });
+  }
+
+  getPlaylists(): void {
+    this.menuSpinner = true;
+    this.spotifyService.getPlaylists().subscribe(success => {
+      this.menuSpinner = false;
+      this.playlists = success;
+    }, error => {
+      this.spotifyService.getSpotifyAutorizationCode().subscribe(success2 => {
+        window.location.href = success2.uri;
+      });
+    });
+  }
+
+  addAlbumToSpotifyPlaylist(p: Playlist, r: Recommendation): void {
+    this.spotifyService.addAlbumToPlaylist(p.id, r.artist, r.name).subscribe(
+      success => {
+        r.added = true;
+        r.opened = false;
+      }, error => {
+        if (error.code === 404) {
+          this.notFound = true;
+          window.scrollTo(0, 0);
+          setTimeout(() => {
+            this.notFound = false;
+          }, 5000);
+          return;
+        }
+        this.spotifyService.getSpotifyAutorizationCode().subscribe(success2 => {
+          window.location.href = success2.uri;
+        });
+      }
+    );
   }
 
   addToSpotify(r: Recommendation): void {
@@ -151,5 +191,13 @@ export class HomeComponent implements OnInit {
         window.location.href = success2.uri;
       });
     });
+  }
+
+  menuOpened(r): void{
+      r.opened = true;
+  }
+
+  menuClosed(r): void{
+      r.opened = false;
   }
 }

@@ -16,7 +16,6 @@ export class SpotifyLoginComponent implements OnInit {
 
   ngOnInit() {
     const code = this.route.snapshot.queryParamMap.get('code');
-    console.log(code);
     this.spotifyService.sendSpotifyCode(code).subscribe(success=>{
         this.router.navigate(['/home']);
     });
