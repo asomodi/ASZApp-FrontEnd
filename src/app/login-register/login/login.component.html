@@ -14,6 +14,9 @@
         <div class="login-content">
           <h3>Welcome Back!</h3>
           <alert></alert>
+          <div class="alert alert-success" role="alert" *ngIf="registered">
+            Successful registration. Please check your mailbox
+          </div>
           <div class="login-form">
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <div class="form-group">
@@ -30,9 +33,9 @@
                   <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>
               </div>
-              <div class="form-group">
-              </div>
-              <button [disabled]="loading" class="btn oneMusic-btn mt-30">
+
+              <mat-spinner  color="accent" style="margin:0 auto; " *ngIf="loading"></mat-spinner>
+              <button [disabled]="loading" class="btn oneMusic-btn mt-30" *ngIf="!loading">
                 Login
               </button>
             </form>

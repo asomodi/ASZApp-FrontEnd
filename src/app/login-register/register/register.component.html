@@ -44,8 +44,11 @@
               <label for="lastFmUsername">lastFm username</label>
               <input type="text" formControlName="lastFmUsername" class="form-control" />
             </div>
-            <button [disabled]="loading" class="btn oneMusic-btn">
-              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            <section class="news-letter">
+                <mat-checkbox color="warn" formControlName="hasNewsLetter" clas="form">Subscribe to our weekly newsletter!</mat-checkbox>
+            </section>
+            <mat-spinner color="accent" style="margin:0 auto;" *ngIf="loading"></mat-spinner>
+            <button [disabled]="loading" class="btn oneMusic-btn" *ngIf="!loading">
               Register
             </button>
           </form>

@@ -1,0 +1,36 @@
+<div class="dark-modal">
+
+  <div class="modal-header">
+    <h4 class="modal-title">{{recommendation.name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex justify-content-center">
+      <img src="{{recommendation.img}}" alt="">
+    </div>
+  </div>
+  <mat-spinner color="accent" style="margin:0 auto;" *ngIf="!loaded"></mat-spinner>
+
+  <div class="modal-body">
+    <div class="d-flex justify-content-center align-items-center" *ngIf="noTracks">
+      <h4>There are no available previews for this album.</h4>
+    </div>
+  </div>
+  <div class="preview">
+
+    <div class="modal-body" *ngFor="let t of tracks">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6>{{t.name}}</h6>
+        <audio preload="auto" controls #player>
+          <source src={{t.previewUrl}}>
+        </audio>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="activeModal.close()">Close</button>
+  </div>
+
+</div>

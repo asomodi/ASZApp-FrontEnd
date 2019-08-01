@@ -21,6 +21,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { HomeComponent } from './home/home.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatMenuModule} from '@angular/material/menu';
 
 import { AlertComponent } from './alert/alert.component';
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -30,6 +31,7 @@ import { DislikeModalComponent } from './_modals/dislike-modal/dislike-modal.com
 import { AlbumSearchPipe } from './_pipes/album-search.pipe';
 import { VerifyComponent } from './verify/verify.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
+import { AlbumModalComponent } from './_modals/album-modal/album-modal.component';
 
 
 @NgModule({
@@ -50,9 +52,13 @@ import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
     DislikeModalComponent,
     AlbumSearchPipe,
     VerifyComponent,
-    SpotifyLoginComponent
+    SpotifyLoginComponent,
+    AlbumModalComponent
   ],
-  entryComponents: [DislikeModalComponent],
+  entryComponents: [
+      DislikeModalComponent,
+      AlbumModalComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -64,7 +70,8 @@ import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
     MatProgressSpinnerModule,
     NgxSpinnerModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatMenuModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

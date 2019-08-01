@@ -27,10 +27,14 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'verify', component: VerifyComponent },
   { path: 'api/spotify/callback', component: SpotifyLoginComponent},
+
+  { path: '**', redirectTo: 'index' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

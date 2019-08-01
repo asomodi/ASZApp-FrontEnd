@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
@@ -14,11 +14,12 @@ import { AlertService } from 'src/app/_services/alert.service';
   styleUrls: ['./login.component.scss'],
 
 })
-export class LoginComponent implements OnInit, AfterViewInit {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
+  registered = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,17 +46,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
 
     // show success message on registration
-  }
-
-ngAfterViewInit(){
     if (this.route.snapshot.queryParams['registered']) {
-        console.log("most");
-        setTimeout(() => {
-            this.alertService.success('Registration successful. Please check your emails');
-        }, 10);
+        this.registered = true;
     }
-
-}
+  }
 
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
@@ -84,10 +78,10 @@ ngAfterViewInit(){
           this.router.navigate([this.returnUrl]);
         },
         error => {
-            let msg = error.exception;
-            if(msg==null){
-                msg="Something went wrong. Please try again later"
-            }
+          let msg = error.exception;
+          if (msg == null) {
+            msg = "Something went wrong. Please try again later"
+          }
           this.alertService.error(msg);
           this.loading = false;
         });

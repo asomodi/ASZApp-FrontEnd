@@ -1,5 +1,4 @@
 .like-icon {
-  // color: #4267B2;
   color: #006600;
   font-size: 30px;
   padding-right: 8px;
@@ -7,7 +6,6 @@
 }
 
 .dislike-icon {
-  // color: #000000;
   color: #CC0000;
   font-size: 30px;
   padding-top: 2px;
@@ -33,6 +31,32 @@
   min-height: 60px;
 }
 
-.album-catagory{
-    min-height: 60vh;
+.album-catagory {
+  min-height: 60vh;
+}
+
+.single-album .top-right button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.single-album .top-right i{
+    text-shadow: 0 0 15px white;
+}
+
+.single-album .top-right button i {
+}
+
+.hide {
+  display: none;
+}
+
+.single-album.hovered .hide,
+.single-album:hover .hide {
+  display: block;
+}
+
+.white h5 {
+  color: white;
 }
