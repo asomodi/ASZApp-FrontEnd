@@ -14,6 +14,7 @@ import { VerifyComponent } from './verify/verify.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { GenreTop10Component } from './genre-top10/genre-top10.component';
 
 
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'changePassword', component: ChangePasswordComponent },
 
+  { path: 'genre', component: GenreTop10Component},
   { path: '**', redirectTo: 'index' }
 ];
 

@@ -1,0 +1,51 @@
+.album-info {
+  text-align: center;
+}
+
+.album-thumb {
+  height:20%;
+   width:100%;
+}
+
+.single-album-area:focus,
+.single-album-area:hover {
+  box-shadow: 0 5px 70px 0 rgba(0, 0, 0, 0.15);
+}
+
+.oneMusic-buy-now-area {
+  text-align: center;
+}
+
+.submit{
+  background-color: #fff;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 212px;
+  height: 49px;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 0;
+  padding: 0 30px;
+  font-size: 16px;
+  line-height: 47px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.submit:hover{
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #000000;
+  color: #fff;
+}
+
+// .album-thumb-rock {
+//   max-height: 60%;
+// }
+//
+// .album-thumb-jazz {
+//   max-height: 60%;
+// }
