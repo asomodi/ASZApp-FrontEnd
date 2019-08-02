@@ -28,4 +28,8 @@ export class RecommendationService {
     return this.http.post(this.SERVER_URL + "/" + id, {}, { withCredentials: true });
   }
 
+  removeFromRecommendation(id: number): Observable<any>{
+      return this.http.patch(this.SERVER_URL+"/"+ id, {}, {withCredentials: true});
+  }
+
 }

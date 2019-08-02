@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { UserService } from 'src/app/_services/user.service';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
@@ -30,14 +30,29 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       username: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
       lastFmUsername: [''],
-      spotifyUsername:[''],
+      spotifyUsername: [''],
       hasNewsLetter: [false]
-    });
+    },
+      {
+        // check whether our password and confirm password match
+        validator: this.passwordMatchValidator
+      });
   }
 
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
+
+  passwordMatchValidator(control: AbstractControl) {
+    const password: string = control.get('password').value; // get password from our password form control
+    const confirmPassword: string = control.get('confirmPassword').value; // get password from our confirmPassword form control
+    // compare is the password math
+    if (password !== confirmPassword) {
+      // if they don't match, set an error in our confirmPassword form control
+      control.get('confirmPassword').setErrors({ NoPassswordMatch: true });
+    }
+  }
 
   onSubmit() {
     this.submitted = true;
@@ -50,6 +65,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+
 
     this.loading = true;
     this.userService.register(this.registerForm.value)

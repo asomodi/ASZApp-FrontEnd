@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
   playlists: Playlist[];
   menuSpinner: boolean;
   open = false;
+  generalError = false;
 
   constructor(private spinner: NgxSpinnerService,
     private spotifyService: SpotifyService,
@@ -82,6 +83,17 @@ export class HomeComponent implements OnInit {
 
   }
 
+  refreshRecommendationsToDisplay(r: Recommendation): void{
+      const index = this.recommendationsToDisplay.indexOf(r);
+      this.recommendationsToDisplay.splice(index, 1);
+      if (this.index < this.recommendations.length) {
+        this.recommendationsToDisplay.push(this.recommendations[this.index++]);
+      }
+      const indexToDelete = this.recommendations.indexOf(r);
+      this.recommendations.splice(indexToDelete, 1);
+      localStorage.setItem('recommendations', JSON.stringify(this.recommendations));
+  }
+
   getImgAfterError(r: Recommendation): void {
     const url = r.img;
     r.img = null;
@@ -92,15 +104,10 @@ export class HomeComponent implements OnInit {
     r.spinner = true;
     this.recommendataionService.likeRecommendation(r.id).subscribe(success => {
       r.spinner = false;
-      const index = this.recommendationsToDisplay.indexOf(r);
-      this.recommendationsToDisplay.splice(index, 1);
-      if (this.index < this.recommendations.length) {
-        this.recommendationsToDisplay.push(this.recommendations[this.index++]);
-      }
-      const indexToDelete = this.recommendations.indexOf(r);
-      this.recommendations.splice(indexToDelete, 1);
-      localStorage.setItem('recommendations', JSON.stringify(this.recommendations));
-    });
+      this.refreshRecommendationsToDisplay(r);
+  }, error=>{
+      this.displayError();
+  });
   }
 
   openAlbumModal(r: Recommendation): void {
@@ -116,16 +123,22 @@ export class HomeComponent implements OnInit {
       r.spinner = true;
       this.recommendataionService.deleteRecommendation(r.id).subscribe(success => {
         r.spinner = false;
-        const index = this.recommendationsToDisplay.indexOf(r);
-        this.recommendationsToDisplay.splice(index, 1);
-        if (this.index < this.recommendations.length) {
-          this.recommendationsToDisplay.push(this.recommendations[this.index++]);
-        }
-        const indexToDelete = this.recommendations.indexOf(r);
-        this.recommendations.splice(indexToDelete, 1);
-        localStorage.setItem('recommendations', JSON.stringify(this.recommendations));
+        this.refreshRecommendationsToDisplay(r);
+      }, error=>{
+          this.displayError();
       });
     });
+  }
+
+  remove(r: Recommendation): void {
+    r.spinner = true;
+    this.recommendataionService.removeFromRecommendation(r.id).subscribe(success => {
+      r.spinner = false;
+     this.refreshRecommendationsToDisplay(r);
+  },error=>{
+      r.spinner = false;
+      this.displayError();
+  });
   }
 
   getTracks(): void {
@@ -150,6 +163,14 @@ export class HomeComponent implements OnInit {
         window.location.href = success2.uri;
       });
     });
+  }
+
+  displayError(): void{
+      this.generalError = true;
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        this.generalError = false;
+      }, 5000);
   }
 
   addAlbumToSpotifyPlaylist(p: Playlist, r: Recommendation): void {
@@ -193,11 +214,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  menuOpened(r): void{
-      r.opened = true;
+  menuOpened(r): void {
+    r.opened = true;
   }
 
-  menuClosed(r): void{
-      r.opened = false;
+  menuClosed(r): void {
+    r.opened = false;
   }
 }

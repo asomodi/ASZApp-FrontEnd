@@ -15,12 +15,12 @@
     <p style="color: white"> Loading... </p>
   </ngx-spinner>
 
-  <div class="container d-flex align-items-center justify-content-center" *ngIf="recommendations==null || recommendations.length==0">
+  <div class="container d-flex align-items-center justify-content-center" *ngIf="recommendations===null || recommendations.length==0">
     <h1>You don't have any recommendations</h1>
   </div>
 
   <div class="container">
-    <input type="text" class="form-control mb-3" placeholder="Search by artist" [(ngModel)]="searchTerm" *ngIf="recommendations.length!=0">
+    <input type="text" class="form-control mb-3" placeholder="Search by artist" [(ngModel)]="searchTerm" *ngIf="recommendations!=null &&recommendations.length!=0">
     <div class="row oneMusic-albums">
       <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item" *ngFor="let r of recommendations | albumSearch : searchTerm : searchDate" [@itemState]="'visible'">
         <div class="single-album">
@@ -32,15 +32,15 @@
             <div class="artist">
                 <p>{{r.artist}}</p>
             </div>
-            <i class="fa fa-thumbs-up like-icon" (click)="like(r)" title="Like this song"></i>
-            <i class="fa fa-thumbs-down dislike-icon" (click)="dislike(r)" title="Dislike this song"></i>
+            <i class="fa fa-thumbs-up like-icon" (click)="like(r)" title="Like this alnum"></i>
+            <i class="fa fa-thumbs-down dislike-icon" (click)="dislike(r)" title="Dislike this album"></i>
           </div>
         </div>
       </div>
 
     </div>
   </div>
-  <div class="container d-flex align-items-center justify-content-center" *ngIf="(recommendations|albumSearch : searchTerm : searchDate).length==0 && recommendations.length!=0">
+  <div class="container d-flex align-items-center justify-content-center" *ngIf="(recommendations|albumSearch : searchTerm : searchDate)!=null && (recommendations|albumSearch : searchTerm : searchDate).length==0 && recommendations.length!=0">
     <h1>No search results</h1>
   </div>
 </section>
