@@ -11,6 +11,7 @@ export class NewPasswordModalComponent implements OnInit {
 
   @Input()
   username: string;
+  loading = false;
 
   constructor(public activeModal: NgbActiveModal,
     private authenticationService: AuthenticationService) {
@@ -21,9 +22,13 @@ export class NewPasswordModalComponent implements OnInit {
   }
 
   sendEmail() {
+    this.loading = true;
     this.authenticationService.resetPassword(this.username.trim()).subscribe(() => {
       this.activeModal.close();
-    });
+      this.loading = false;
+  }, error=>{
+      this.loading= false;
+  });
   }
 
 }
