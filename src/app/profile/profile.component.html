@@ -33,7 +33,10 @@
             <label for="newsLetter">Newsletter subscription</label><br />
             <mat-slide-toggle [(ngModel)]="user.newsLetter" color="warn" id="newsLetter">I'd like to recive weekly newsletters</mat-slide-toggle>
           </div>
-          <mat-spinner  color="accent" style="margin:0 auto; " *ngIf="loading"></mat-spinner>
+          <button [disabled]="loading" class="btn oneMusic-btn genre" routerLink="/genre">
+                Choose genres
+          </button>
+          <mat-spinner color="accent" style="margin:0 auto; " *ngIf="loading"></mat-spinner>
           <button [disabled]="loading" class="btn oneMusic-btn" (click)="save()" *ngIf="!loading">
             Save changes
           </button>

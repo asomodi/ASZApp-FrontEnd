@@ -10,6 +10,7 @@
 .single-album-area:focus,
 .single-album-area:hover {
   box-shadow: 0 5px 70px 0 rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .oneMusic-buy-now-area {
@@ -40,6 +41,7 @@
   font-weight: 700;
   background-color: #000000;
   color: #fff;
+  cursor: pointer;
 }
 
 .album-thumb-rock {
@@ -49,4 +51,11 @@
 
 .album-thumb-jazz {
   max-height: 60%;
+}
+
+.icon-center{
+    text-shadow: 0 0 15px white;
+    position: absolute;
+    top: 40%;
+    right: 40%;
 }

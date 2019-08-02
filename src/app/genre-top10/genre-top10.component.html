@@ -7,7 +7,7 @@
   </div>
 </section>
 
-<section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-100" >
+<section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-100">
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
@@ -18,27 +18,33 @@
     <div class="row">
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('pop')">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="addToGenres('pop', 0)">
           <div class="album-thumb">
             <img src="assets/img/bg-img/pop.jpg" alt="">
+            <div class="icon-center" *ngIf="added[0]">
+                <i class="fa fa-check fa-5x" ></i>
+            </div>
           </div>
           <div class="album-info">
-            <a href="index.html#">
-              <h5>Pop</h5>
-            </a>
+
+            <h5>Pop</h5>
+
           </div>
         </div>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('rock')">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="addToGenres('rock', 1)">
           <div class="album-thumb-rock">
             <img src="assets/img/bg-img/rock.jpg" alt="">
+            <div class="icon-center" *ngIf="added[1]">
+                <i class="fa fa-check fa-5x" ></i>
+            </div>
           </div>
           <div class="album-info">
-            <a href="index.html#">
-              <h5>Rock</h5>
-            </a>
+
+            <h5>Rock</h5>
+
           </div>
         </div>
       </div>
@@ -46,40 +52,49 @@
 
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('rap')">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="addToGenres('rap', 2)">
           <div class="album-thumb">
             <img src="assets/img/bg-img/hip-hop.jpg" alt="">
+            <div class="icon-center" *ngIf="added[2]">
+                <i class="fa fa-check fa-5x" ></i>
+            </div>
           </div>
           <div class="album-info">
-            <a href="index.html#">
-              <h5>Hip-hop</h5>
-            </a>
+
+            <h5>Hip-hop</h5>
+
           </div>
         </div>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('blues')">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="addToGenres('blues', 3)">
           <div class="album-thumb">
             <img src="assets/img/bg-img/blues.jpg" alt="">
+            <div class="icon-center" *ngIf="added[3]">
+                <i class="fa fa-check fa-5x" ></i>
+            </div>
           </div>
           <div class="album-info">
-            <a href="index.html#">
-              <h5>Blues</h5>
-            </a>
+
+            <h5>Blues</h5>
+
           </div>
         </div>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('classical')">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="addToGenres('classical', 4)">
           <div class="album-thumb">
             <img src="assets/img/bg-img/classical.jpg" alt="">
+            <div class="icon-center" *ngIf="added[4]">
+                <i class="fa fa-check fa-5x" ></i>
+            </div>
           </div>
           <div class="album-info">
-            <a href="index.html#">
-              <h5>Classic</h5>
-            </a>
+
+            <h5>Classic</h5>
+
           </div>
         </div>
       </div>
@@ -87,41 +102,50 @@
 
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('metal')">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="addToGenres('metal', 5)">
           <div class="album-thumb">
             <img src="assets/img/bg-img/metal.jpg" alt="">
+            <div class="icon-center" *ngIf="added[5]">
+                <i class="fa fa-check fa-5x" ></i>
+            </div>
           </div>
           <div class="album-info">
-            <a href="index.html#">
-              <h5>Metal</h5>
-            </a>
+
+            <h5>Metal</h5>
+
           </div>
         </div>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('jazz')">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="addToGenres('jazz', 6)">
           <div class="album-thumb-jazz">
             <img src="assets/img/bg-img/jazz.jpg" alt="">
+            <div class="icon-center" *ngIf="added[6]">
+                <i class="fa fa-check fa-5x" ></i>
+            </div>
           </div>
           <div class="album-info">
-            <a href="index.html#">
-              <h5>Jazz</h5>
-            </a>
+
+            <h5>Jazz</h5>
+
           </div>
         </div>
       </div>
 
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms"  (click)= "addToGenres('electric')">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="addToGenres('electric', 7)">
           <div class="album-thumb">
             <img src="assets/img/bg-img/techno.jpg" alt="">
+            <div class="icon-center" *ngIf="added[7]">
+                <i class="fa fa-check fa-5x" ></i>
+            </div>
           </div>
           <div class="album-info">
-            <a href="index.html#">
-              <h5>Electric</h5>
-            </a>
+
+            <h5>Electric</h5>
+
           </div>
         </div>
       </div>

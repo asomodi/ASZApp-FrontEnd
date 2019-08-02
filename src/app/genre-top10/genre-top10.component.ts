@@ -10,20 +10,26 @@ import { Router } from '@angular/router';
 export class GenreTop10Component implements OnInit {
   numberOfGenre = 0;
   typeOfGenres: string[];
+  added: boolean[];
 
   constructor(private genreService: GenreService, private router: Router) {
     this.typeOfGenres = [];
+    this.added=[];
+
+    for (let i = 0; i < 8; i++) {
+        this.added[i]=false;
+    }
 
   }
 
   ngOnInit() {
   }
 
-  addToGenres(genre: string) {
+  addToGenres(genre: string, id:number) {
     if(!this.typeOfGenres.includes(genre)) {
       this.typeOfGenres.push(genre);
       this.numberOfGenre++;
-
+      this.added[id]=true;
     }
   }
 
