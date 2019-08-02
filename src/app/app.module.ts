@@ -34,6 +34,8 @@ import { VerifyComponent } from './verify/verify.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
 import { AlbumModalComponent } from './_modals/album-modal/album-modal.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NewPasswordModalComponent } from './_modals/new-password-modal/new-password-modal.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -56,11 +58,15 @@ import { ProfileComponent } from './profile/profile.component';
     VerifyComponent,
     SpotifyLoginComponent,
     AlbumModalComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewPasswordModalComponent,
+    ChangePasswordComponent,
+
   ],
   entryComponents: [
       DislikeModalComponent,
-      AlbumModalComponent
+      AlbumModalComponent,
+      NewPasswordModalComponent
   ],
   imports: [
     BrowserModule,

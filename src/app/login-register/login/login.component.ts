@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 import { first } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertService } from 'src/app/_services/alert.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NewPasswordModalComponent } from 'src/app/_modals/new-password-modal/new-password-modal.component';
 
 
 
@@ -20,18 +22,23 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   registered = false;
+  @Input()
+  username: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private modalService: NgbModal
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/home']);
     }
+
+    this.username = "";
 
   }
 
@@ -47,7 +54,7 @@ export class LoginComponent implements OnInit {
 
     // show success message on registration
     if (this.route.snapshot.queryParams['registered']) {
-        this.registered = true;
+      this.registered = true;
     }
   }
 
@@ -81,11 +88,19 @@ export class LoginComponent implements OnInit {
           let msg = error.exception;
           if (msg == null) {
             msg = "Something went wrong. Please try again later"
-        }else if(msg=="User is disabled"){
+          } else if (msg == "User is disabled") {
             msg = "You can't log in until you verified your email address"
-        }
+          }
           this.alertService.error(msg);
           this.loading = false;
         });
+  }
+
+  forgotPassword(): void {
+    const modalRef = this.modalService.open(NewPasswordModalComponent);
+    modalRef.componentInstance.username = this.username;
+    modalRef.result.then(() => {
+        console.log("oy");
+    });
   }
 }

@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
   menuSpinner: boolean;
   open = false;
   generalError = false;
+  username = '';
 
   constructor(private spinner: NgxSpinnerService,
     private spotifyService: SpotifyService,

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Change } from '../interfaces/change';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -20,7 +21,7 @@ export class AuthenticationService {
   }
 
   login(f: FormData): Observable<any> {
-    return this.http.post<any>(this.SERVER_URL+"login", f, {withCredentials: true})
+    return this.http.post<any>(this.SERVER_URL + "login", f, { withCredentials: true })
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));
@@ -34,6 +35,18 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('recommendations');
     this.currentUserSubject.next(null);
-    return this.http.post(this.SERVER_URL+"logout", {}, {withCredentials: true});
+    return this.http.post(this.SERVER_URL + "logout", {}, { withCredentials: true });
+  }
+
+  resetPassword(username: string): Observable<any> {
+    return this.http.post(this.SERVER_URL + "api/resetPassword", { username: username });
+  }
+
+  sendToken(id: string, token: string, password: string): Observable<any> {
+    return this.http.post(this.SERVER_URL + "api/changePassword", { id: id, token: token, password: password });
+  }
+
+  saveChanges(change: Change): Observable<any>{
+      return this.http.post(this.SERVER_URL+"editProfile", change, {withCredentials: true});
   }
 }

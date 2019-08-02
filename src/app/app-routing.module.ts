@@ -13,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { VerifyComponent } from './verify/verify.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'verify', component: VerifyComponent },
   { path: 'api/spotify/callback', component: SpotifyLoginComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'changePassword', component: ChangePasswordComponent },
 
   { path: '**', redirectTo: 'index' }
 ];

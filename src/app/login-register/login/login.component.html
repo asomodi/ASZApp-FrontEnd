@@ -1,12 +1,12 @@
 <app-header></app-header>
-
+​
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/breadcumb3.jpg);">
   <div class="bradcumbContent">
     <p></p>
     <h2>Login</h2>
   </div>
 </section>
-
+​
 <section class="login-area section-padding-100">
   <div class="container">
     <div class="row justify-content-center">
@@ -33,19 +33,23 @@
                   <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>
               </div>
-
+​
               <mat-spinner  color="accent" style="margin:0 auto; " *ngIf="loading"></mat-spinner>
               <button [disabled]="loading" class="btn oneMusic-btn mt-30" *ngIf="!loading">
                 Login
               </button>
+              <br>
+              <div class="container mt-30">
+                <div class="forgot" (click)="forgotPassword()">Forgot your password?</div>
+              </div>
             </form>
-
+​
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
+​
+​
 <app-footer></app-footer>
