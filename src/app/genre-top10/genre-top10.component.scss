@@ -42,10 +42,11 @@
   color: #fff;
 }
 
-// .album-thumb-rock {
-//   max-height: 60%;
-// }
-//
-// .album-thumb-jazz {
-//   max-height: 60%;
-// }
+.album-thumb-rock {
+  max-height: 80%;
+  background-size: cover;
+}
+
+.album-thumb-jazz {
+  max-height: 60%;
+}
