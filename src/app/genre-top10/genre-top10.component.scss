@@ -17,16 +17,35 @@
 }
 
 .submit{
-  font-family: 'Work Sans', sans-serif;
-    font-size: 22px;
-    background-color: #279;
-    color: #fff;
-    border: 0px;
-    border-radius: 3px;
-    padding: 10px;
-    margin-bottom: 10px;
+  background-color: #fff;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 212px;
+  height: 49px;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 0;
+  padding: 0 30px;
+  font-size: 16px;
+  line-height: 47px;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
 .submit:hover{
-    background-color: #38a;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #000000;
+  color: #fff;
 }
+
+// .album-thumb-rock {
+//   max-height: 60%;
+// }
+//
+// .album-thumb-jazz {
+//   max-height: 60%;
+// }

@@ -7,7 +7,7 @@
   </div>
 </section>
 
-<section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-90" >
+<section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-80" >
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
@@ -18,7 +18,7 @@
     <div class="row">
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('pop')">
           <div class="album-thumb">
             <img src="assets/img/bg-img/pop.jpg" alt="">
           </div>
@@ -31,8 +31,8 @@
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
-          <div class="album-thumb">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('rock')">
+          <div class="album-thumb-rock">
             <img src="assets/img/bg-img/rock.jpg" alt="">
           </div>
           <div class="album-info">
@@ -46,7 +46,7 @@
 
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('rap')">
           <div class="album-thumb">
             <img src="assets/img/bg-img/hip-hop.jpg" alt="">
           </div>
@@ -59,7 +59,7 @@
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('blues')">
           <div class="album-thumb">
             <img src="assets/img/bg-img/blues.jpg" alt="">
           </div>
@@ -72,13 +72,13 @@
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('classical')">
           <div class="album-thumb">
             <img src="assets/img/bg-img/classical.jpg" alt="">
           </div>
           <div class="album-info">
             <a href="index.html#">
-              <h5>classical</h5>
+              <h5>Classic</h5>
             </a>
           </div>
         </div>
@@ -87,7 +87,7 @@
 
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('metal')">
           <div class="album-thumb">
             <img src="assets/img/bg-img/metal.jpg" alt="">
           </div>
@@ -100,8 +100,8 @@
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
-          <div class="album-thumb">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)= "addToGenres('jazz')">
+          <div class="album-thumb-jazz">
             <img src="assets/img/bg-img/jazz.jpg" alt="">
           </div>
           <div class="album-info">
@@ -114,7 +114,7 @@
 
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms"  (click)= "addToGenres('electric')">
           <div class="album-thumb">
             <img src="assets/img/bg-img/techno.jpg" alt="">
           </div>
@@ -130,14 +130,14 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
-          <button class="submit" *ngIf="numberOfGenre==3" (click)="numberOfGenre=numberOfGenre+1">Submit</button>
+        <div class="load-more-btn text-center wow fadeInUp mt-10" data-wow-delay="300ms">
+          <button class="submit" *ngIf="numberOfGenre==3" (click)="saveGenres()">Submit</button>
         </div>
       </div>
     </div>
   </div>
 
-
 </section>
+
 
 <app-footer></app-footer>
