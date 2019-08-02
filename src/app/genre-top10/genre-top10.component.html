@@ -1,26 +1,24 @@
 <app-header></app-header>
 
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/breadcumb.jpg);">
-  <div class="bradcumbContent">
-    <p>Hello!</p>
-    <h2>Take a quiz!</h2>
+  <div class="bradcumbContent mb-10">
+    <p>Please choose</p>
+    <h2>Your top five genre</h2>
   </div>
 </section>
 
-<section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-100">
+<section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-90" >
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
         <div class="section-heading style-2">
-          <p>Please choose</p>
-          <h2>Your top five genre</h2>
         </div>
       </div>
     </div>
     <div class="row">
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
           <div class="album-thumb">
             <img src="assets/img/bg-img/pop.jpg" alt="">
           </div>
@@ -32,8 +30,8 @@
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
           <div class="album-thumb">
             <img src="assets/img/bg-img/rock.jpg" alt="">
           </div>
@@ -45,21 +43,10 @@
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
-          <div class="album-thumb">
-            <img src="assets/img/bg-img/jazz.jpg" alt="">
-          </div>
-          <div class="album-info">
-            <a href="index.html#">
-              <h5>Jazz</h5>
-            </a>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
           <div class="album-thumb">
             <img src="assets/img/bg-img/hip-hop.jpg" alt="">
           </div>
@@ -71,8 +58,8 @@
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
           <div class="album-thumb">
             <img src="assets/img/bg-img/blues.jpg" alt="">
           </div>
@@ -84,8 +71,8 @@
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
           <div class="album-thumb">
             <img src="assets/img/bg-img/classical.jpg" alt="">
           </div>
@@ -97,34 +84,10 @@
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
-          <div class="album-thumb">
-            <img src="assets/img/bg-img/country.jpg" alt="">
-          </div>
-          <div class="album-info">
-            <a href="index.html#">
-              <h5>country</h5>
-            </a>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
-          <div class="album-thumb">
-            <img src="assets/img/bg-img/pop.jpg" alt="">
-          </div>
-          <div class="album-info">
-            <a href="index.html#">
-              <h5>Pop</h5>
-            </a>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
           <div class="album-thumb">
             <img src="assets/img/bg-img/metal.jpg" alt="">
           </div>
@@ -136,40 +99,28 @@
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
           <div class="album-thumb">
-            <img src="assets/img/bg-img/folk.jpg" alt="">
+            <img src="assets/img/bg-img/jazz.jpg" alt="">
           </div>
           <div class="album-info">
             <a href="index.html#">
-              <h5>Folk</h5>
+              <h5>Jazz</h5>
             </a>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
-          <div class="album-thumb">
-            <img src="assets/img/bg-img/pop.jpg" alt="">
-          </div>
-          <div class="album-info">
-            <a href="index.html#">
-              <h5>Pop</h5>
-            </a>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" (click)="numberOfGenre=numberOfGenre+1">
           <div class="album-thumb">
-            <img src="assets/img/bg-img/pop.jpg" alt="">
+            <img src="assets/img/bg-img/techno.jpg" alt="">
           </div>
           <div class="album-info">
             <a href="index.html#">
-              <h5>Pop</h5>
+              <h5>Electric</h5>
             </a>
           </div>
         </div>
@@ -180,11 +131,13 @@
     <div class="row">
       <div class="col-12">
         <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
-          <a href="index.html#" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
+          <button class="submit" *ngIf="numberOfGenre==3" (click)="numberOfGenre=numberOfGenre+1">Submit</button>
         </div>
       </div>
     </div>
   </div>
+
+
 </section>
 
-<app-header></app-header>
+<app-footer></app-footer>

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./genre-top10.component.scss']
 })
 export class GenreTop10Component implements OnInit {
+  numberOfGenre = 0;
 
   constructor() { }
 

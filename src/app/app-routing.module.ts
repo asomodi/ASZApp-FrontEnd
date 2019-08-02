@@ -12,6 +12,8 @@ import { ArtistsComponent } from './artists/artists.component';
 import { AboutComponent } from './about/about.component';
 import { VerifyComponent } from './verify/verify.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { GenreTop10Component } from './genre-top10/genre-top10.component';
 
 
 
@@ -27,7 +29,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'verify', component: VerifyComponent },
   { path: 'api/spotify/callback', component: SpotifyLoginComponent},
-
+  { path: 'genre', component: GenreTop10Component},
   { path: '**', redirectTo: 'index' }
 ];
 
