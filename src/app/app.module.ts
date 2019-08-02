@@ -22,6 +22,7 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { HomeComponent } from './home/home.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule} from '@angular/material/menu';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { AlertComponent } from './alert/alert.component';
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -32,6 +33,7 @@ import { AlbumSearchPipe } from './_pipes/album-search.pipe';
 import { VerifyComponent } from './verify/verify.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
 import { AlbumModalComponent } from './_modals/album-modal/album-modal.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -53,7 +55,8 @@ import { AlbumModalComponent } from './_modals/album-modal/album-modal.component
     AlbumSearchPipe,
     VerifyComponent,
     SpotifyLoginComponent,
-    AlbumModalComponent
+    AlbumModalComponent,
+    ProfileComponent
   ],
   entryComponents: [
       DislikeModalComponent,
@@ -71,7 +74,8 @@ import { AlbumModalComponent } from './_modals/album-modal/album-modal.component
     NgxSpinnerModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSlideToggleModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

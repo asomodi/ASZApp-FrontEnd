@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/breadcumb3.jpg);">
+  <div class="bradcumbContent">
+    <p></p>
+    <h2>Your profile</h2>
+  </div>
+</section>
+
+<section class="login-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="login-content">
+
+          <h4>Settings</h4>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" [(ngModel)]="user.username" [disabled]="true">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" [(ngModel)]="user.email" [disabled]="true">
+          </div>
+          <div class="form-group">
+            <label for="lastfm">LastFm username</label>
+            <input type="text" class="form-control" id="lastfm" [(ngModel)]="user.lastFmUsername">
+          </div>
+          <div class="form-group">
+            <label for="newsLetter">Newsletter subscription</label><br />
+            <mat-slide-toggle [(ngModel)]="user.newsLetter" color="warn" id="newsLetter">I'd like to recive weekly newsletters</mat-slide-toggle>
+          </div>
+          <button [disabled]="loading" class="btn oneMusic-btn">
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

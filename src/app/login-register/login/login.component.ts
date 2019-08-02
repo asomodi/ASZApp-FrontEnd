@@ -81,7 +81,9 @@ export class LoginComponent implements OnInit {
           let msg = error.exception;
           if (msg == null) {
             msg = "Something went wrong. Please try again later"
-          }
+        }else if(msg=="User is disabled"){
+            msg = "You can't log in until you verified your email address"
+        }
           this.alertService.error(msg);
           this.loading = false;
         });

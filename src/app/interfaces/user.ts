@@ -1,4 +1,6 @@
 export interface User {
-    userName: string;
-    password: string;
+    username: string;
+    lastFmUsername: string;
+    email: string;
+    newsLetter: boolean;
 }

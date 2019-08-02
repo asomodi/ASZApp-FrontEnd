@@ -12,6 +12,7 @@ import { ArtistsComponent } from './artists/artists.component';
 import { AboutComponent } from './about/about.component';
 import { VerifyComponent } from './verify/verify.component';
 import { SpotifyLoginComponent } from './spotify-login/spotify-login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -26,13 +27,14 @@ const routes: Routes = [
   { path: 'artists', component: ArtistsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'verify', component: VerifyComponent },
-  { path: 'api/spotify/callback', component: SpotifyLoginComponent},
+  { path: 'api/spotify/callback', component: SpotifyLoginComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
 
   { path: '**', redirectTo: 'index' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{
+  imports: [RouterModule.forRoot(routes, {
     scrollPositionRestoration: 'enabled'
   })],
   exports: [RouterModule]
